@@ -1,0 +1,10 @@
+<?php
+
+declare(strict_types=1);
+
+namespace SpiderDead\SnelStartApi\Model;
+final class SnelStartB2BApiV2ModelsRelatiesRelatieModelArray1
+{
+    /** @var array<int, \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsRelatiesRelatieModel>|null */
+    public ?array $value = null;
+}

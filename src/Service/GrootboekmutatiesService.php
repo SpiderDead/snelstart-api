@@ -1,0 +1,42 @@
+<?php
+
+declare(strict_types=1);
+
+namespace SpiderDead\SnelStartApi\Service;
+
+final class GrootboekmutatiesService extends AbstractService
+{
+    /**
+     * Operation ID: v2-grootboekmutaties-GET-OData
+     * @throws \SpiderDead\SnelStartApi\Exception\ApiException
+     */
+    public function v2GrootboekmutatiesGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsGrootboekMutatiesGrootboekMutatieModelArray
+    {
+        $pathParams = [];
+        $queryParams = [];
+        if ($filter !== null) {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        $result = $this->call('v2-grootboekmutaties-GET-OData', $pathParams, $queryParams, null);
+        return $result;
+    }
+
+    /**
+     * Operation ID: v2-grootboekmutaties-id-GET
+     * @throws \SpiderDead\SnelStartApi\Exception\ApiException
+     */
+    public function v2GrootboekmutatiesIdGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsGrootboekMutatiesGrootboekMutatieModel
+    {
+        $pathParams = [];
+        $pathParams['id'] = $id;
+        $queryParams = [];
+        $result = $this->call('v2-grootboekmutaties-id-GET', $pathParams, $queryParams, null);
+        return $result;
+    }
+}

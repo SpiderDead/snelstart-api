@@ -1,0 +1,80 @@
+<?php
+
+declare(strict_types=1);
+
+namespace SpiderDead\SnelStartApi\Service;
+
+final class BankboekingenService extends AbstractService
+{
+    /**
+     * Operation ID: v2-bankboekingen-GET-OData
+     * @throws \SpiderDead\SnelStartApi\Exception\ApiException
+     */
+    public function v2BankboekingenGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBankboekingenBankboekingModelArray
+    {
+        $pathParams = [];
+        $queryParams = [];
+        if ($filter !== null) {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        $result = $this->call('v2-bankboekingen-GET-OData', $pathParams, $queryParams, null);
+        return $result;
+    }
+
+    /**
+     * Operation ID: v2-bankboekingen-POST
+     * @throws \SpiderDead\SnelStartApi\Exception\ApiException
+     */
+    public function v2BankboekingenPOST(?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBankboekingenBankboekingModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBankboekingenBankboekingModel
+    {
+        $pathParams = [];
+        $queryParams = [];
+        $result = $this->call('v2-bankboekingen-POST', $pathParams, $queryParams, $body);
+        return $result;
+    }
+
+    /**
+     * Operation ID: v2-bankboekingen-id-DELETE
+     * @throws \SpiderDead\SnelStartApi\Exception\ApiException
+     */
+    public function v2BankboekingenIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\BankboekingenIdDelete200ApplicationJsonResponse
+    {
+        $pathParams = [];
+        $pathParams['id'] = $id;
+        $queryParams = [];
+        $result = $this->call('v2-bankboekingen-id-DELETE', $pathParams, $queryParams, null);
+        return $result;
+    }
+
+    /**
+     * Operation ID: v2-bankboekingen-id-GET
+     * @throws \SpiderDead\SnelStartApi\Exception\ApiException
+     */
+    public function v2BankboekingenIdGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBankboekingenBankboekingModel
+    {
+        $pathParams = [];
+        $pathParams['id'] = $id;
+        $queryParams = [];
+        $result = $this->call('v2-bankboekingen-id-GET', $pathParams, $queryParams, null);
+        return $result;
+    }
+
+    /**
+     * Operation ID: v2-bankboekingen-id-PUT
+     * @throws \SpiderDead\SnelStartApi\Exception\ApiException
+     */
+    public function v2BankboekingenIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBankboekingenBankboekingModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBankboekingenBankboekingModel
+    {
+        $pathParams = [];
+        $pathParams['id'] = $id;
+        $queryParams = [];
+        $result = $this->call('v2-bankboekingen-id-PUT', $pathParams, $queryParams, $body);
+        return $result;
+    }
+}

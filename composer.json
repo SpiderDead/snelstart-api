@@ -1,0 +1,42 @@
+{
+  "name": "spiderdead/snelstart-api",
+  "description": "Typed PHP SDK for SnelStart B2B API v2",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^8.2",
+    "ext-json": "*",
+    "psr/http-client": "^1.0",
+    "psr/http-factory": "^1.0",
+    "psr/http-message": "^1.1 || ^2.0",
+    "symfony/property-access": "^7.0",
+    "symfony/property-info": "^7.0",
+    "symfony/serializer": "^7.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.60",
+    "nyholm/psr7": "^1.8",
+    "phpstan/phpstan": "^1.11",
+    "phpunit/phpunit": "^11.2",
+    "symfony/http-client": "^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "SpiderDead\\SnelStartApi\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "SpiderDead\\SnelStartApi\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "generate": "python tools/generate_sdk.py",
+    "generate-check": "python tools/generate_sdk.py --check",
+    "lint": "php-cs-fixer fix --dry-run --diff",
+    "analyse": "phpstan analyse",
+    "test": "phpunit --configuration phpunit.xml.dist"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

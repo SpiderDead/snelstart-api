@@ -1,0 +1,606 @@
+<?php
+
+declare(strict_types=1);
+
+namespace SpiderDead\SnelStartApi\Generated;
+
+use InvalidArgumentException;
+
+final class OperationMap
+{
+    /** @var array<string, array{method: string, path: string, response_kind: string, response_type: string}> */
+    private const OPERATIONS = [
+        'v2-actieprijzen-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/actieprijzen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsActieprijzenActieprijzenModelArray',
+        ],
+        'v2-artikelen-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/artikelen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsArtikelenArtikelQueryModelArray',
+        ],
+        'v2-artikelen-POST' => [
+            'method' => 'POST',
+            'path' => '/artikelen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsArtikelenArtikelModel',
+        ],
+        'v2-artikelen-id-DELETE' => [
+            'method' => 'DELETE',
+            'path' => '/artikelen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelenIdDelete200ApplicationJsonResponse',
+        ],
+        'v2-artikelen-id-GET' => [
+            'method' => 'GET',
+            'path' => '/artikelen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsArtikelenArtikelQueryModel',
+        ],
+        'v2-artikelen-id-PUT' => [
+            'method' => 'PUT',
+            'path' => '/artikelen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsArtikelenArtikelModel',
+        ],
+        'v2-artikelen-id-customFields-GET' => [
+            'method' => 'GET',
+            'path' => '/artikelen/{id}/customFields',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartBusinessInterfacesCustomFieldsCustomFieldDtoArray',
+        ],
+        'v2-artikelen-id-customFields-PUT' => [
+            'method' => 'PUT',
+            'path' => '/artikelen/{id}/customFields',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartBusinessInterfacesCustomFieldsCustomFieldDtoArray2',
+        ],
+        'v2-artikelen-prijsafspraken-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/artikelen/prijsafspraken',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsArtikelenArtikelPrijsAfsprakenModelArray',
+        ],
+        'v2-artikelomzetgroepen-GET' => [
+            'method' => 'GET',
+            'path' => '/artikelomzetgroepen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsArtikelenArtikelOmzetGroepModelArray',
+        ],
+        'v2-artikelomzetgroepen-id-GET' => [
+            'method' => 'GET',
+            'path' => '/artikelomzetgroepen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsArtikelenArtikelOmzetGroepModel',
+        ],
+        'v2-authorization-HasUserAccessToAdministration-GET' => [
+            'method' => 'GET',
+            'path' => '/authorization/HasUserAccessToAdministration',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsAuthorizationAdministrationAccessModel',
+        ],
+        'v2-bankafschriftbestanden-POST' => [
+            'method' => 'POST',
+            'path' => '/bankafschriftbestanden',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsBankafschriftBestandResponseArray',
+        ],
+        'v2-bankboekingen-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/bankboekingen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsBankboekingenBankboekingModelArray',
+        ],
+        'v2-bankboekingen-POST' => [
+            'method' => 'POST',
+            'path' => '/bankboekingen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsBankboekingenBankboekingModel',
+        ],
+        'v2-bankboekingen-id-DELETE' => [
+            'method' => 'DELETE',
+            'path' => '/bankboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\BankboekingenIdDelete200ApplicationJsonResponse',
+        ],
+        'v2-bankboekingen-id-GET' => [
+            'method' => 'GET',
+            'path' => '/bankboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsBankboekingenBankboekingModel',
+        ],
+        'v2-bankboekingen-id-PUT' => [
+            'method' => 'PUT',
+            'path' => '/bankboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsBankboekingenBankboekingModel',
+        ],
+        'v2-btwaangiftes-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/btwaangiftes',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsBtwAangiftesBtwAangifteModelArray',
+        ],
+        'v2-btwaangiftes-id-GET' => [
+            'method' => 'GET',
+            'path' => '/btwaangiftes/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsBtwAangiftesBtwAangifteModel',
+        ],
+        'v2-btwaangiftes-id-externAangeven-PUT' => [
+            'method' => 'PUT',
+            'path' => '/btwaangiftes/{id}/externAangeven',
+            'response_kind' => 'none',
+            'response_type' => '',
+        ],
+        'v2-btwtarieven-GET' => [
+            'method' => 'GET',
+            'path' => '/btwtarieven',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsBtwTarievenBtwTariefModelArray',
+        ],
+        'v2-companyInfo-GET' => [
+            'method' => 'GET',
+            'path' => '/companyInfo',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsCompanyInfoCompanyInfoModel',
+        ],
+        'v2-companyInfo-PUT' => [
+            'method' => 'PUT',
+            'path' => '/companyInfo',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsCompanyInfoCompanyInfoModel',
+        ],
+        'v2-dagboeken-GET' => [
+            'method' => 'GET',
+            'path' => '/dagboeken',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsDagboekenDagboekModelArray',
+        ],
+        'v2-documenten-documenttype-POST' => [
+            'method' => 'POST',
+            'path' => '/documenten/{documenttype}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsDocumentenDocumentIdentifierModel',
+        ],
+        'v2-documenten-documenttype-pid-GET' => [
+            'method' => 'GET',
+            'path' => '/documenten/{documenttype}/{pid}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsBijlagenVerkoopBoekingBijlageReferenceModelArra',
+        ],
+        'v2-documenten-id-DELETE' => [
+            'method' => 'DELETE',
+            'path' => '/documenten/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\DocumentenIdDelete200ApplicationJsonResponse',
+        ],
+        'v2-documenten-id-GET' => [
+            'method' => 'GET',
+            'path' => '/documenten/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsDocumentenDocumentContentModel',
+        ],
+        'v2-documenten-id-PUT' => [
+            'method' => 'PUT',
+            'path' => '/documenten/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsDocumentenDocumentIdentifierModel',
+        ],
+        'v2-echo-input-GET' => [
+            'method' => 'GET',
+            'path' => '/echo/{input}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\EchoInputGet200ApplicationJsonResponse',
+        ],
+        'v2-grootboeken-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/grootboeken',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsGrootboekenGrootboekModelArray',
+        ],
+        'v2-grootboeken-POST' => [
+            'method' => 'POST',
+            'path' => '/grootboeken',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsGrootboekenGrootboekModel',
+        ],
+        'v2-grootboeken-id-GET' => [
+            'method' => 'GET',
+            'path' => '/grootboeken/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsGrootboekenGrootboekModel',
+        ],
+        'v2-grootboekmutaties-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/grootboekmutaties',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsGrootboekMutatiesGrootboekMutatieModelArray',
+        ],
+        'v2-grootboekmutaties-id-GET' => [
+            'method' => 'GET',
+            'path' => '/grootboekmutaties/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsGrootboekMutatiesGrootboekMutatieModel',
+        ],
+        'v2-inkoopboekingen-CreateFromAttachment-POST' => [
+            'method' => 'POST',
+            'path' => '/inkoopboekingen/CreateFromAttachment',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsInkoopboekingenCreateFromAttachmentModel',
+        ],
+        'v2-inkoopboekingen-GetCreateFromAttachmentStatus-GET' => [
+            'method' => 'GET',
+            'path' => '/inkoopboekingen/GetCreateFromAttachmentStatus',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsInkoopboekingenCreateFromAttachmentStatusModel',
+        ],
+        'v2-inkoopboekingen-POST' => [
+            'method' => 'POST',
+            'path' => '/inkoopboekingen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsInkoopboekingenInkoopboekingModel',
+        ],
+        'v2-inkoopboekingen-id-DELETE' => [
+            'method' => 'DELETE',
+            'path' => '/inkoopboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\InkoopboekingenIdDelete200ApplicationJsonResponse',
+        ],
+        'v2-inkoopboekingen-id-GET' => [
+            'method' => 'GET',
+            'path' => '/inkoopboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsInkoopboekingenInkoopboekingModel',
+        ],
+        'v2-inkoopboekingen-id-PUT' => [
+            'method' => 'PUT',
+            'path' => '/inkoopboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsInkoopboekingenInkoopboekingModel',
+        ],
+        'v2-inkoopboekingen-ubl-POST' => [
+            'method' => 'POST',
+            'path' => '/inkoopboekingen/ubl',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsInkoopboekingenInkoopboekingModel',
+        ],
+        'v2-inkoopfacturen-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/inkoopfacturen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsInkoopfacturenInkoopfactuurModelArray',
+        ],
+        'v2-kasboekingen-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/kasboekingen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsKasboekingenKasboekingModelArray',
+        ],
+        'v2-kasboekingen-POST' => [
+            'method' => 'POST',
+            'path' => '/kasboekingen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsKasboekingenKasboekingModel',
+        ],
+        'v2-kasboekingen-id-DELETE' => [
+            'method' => 'DELETE',
+            'path' => '/kasboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\KasboekingenIdDelete200ApplicationJsonResponse',
+        ],
+        'v2-kasboekingen-id-GET' => [
+            'method' => 'GET',
+            'path' => '/kasboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsKasboekingenKasboekingModel',
+        ],
+        'v2-kasboekingen-id-PUT' => [
+            'method' => 'PUT',
+            'path' => '/kasboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsKasboekingenKasboekingModel',
+        ],
+        'v2-kostenplaatsen-GET' => [
+            'method' => 'GET',
+            'path' => '/kostenplaatsen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsKostenplaatsenKostenplaatsModelArray',
+        ],
+        'v2-kostenplaatsen-POST' => [
+            'method' => 'POST',
+            'path' => '/kostenplaatsen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsKostenplaatsenKostenplaatsModel',
+        ],
+        'v2-kostenplaatsen-id-DELETE' => [
+            'method' => 'DELETE',
+            'path' => '/kostenplaatsen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\KostenplaatsenIdDelete200ApplicationJsonResponse',
+        ],
+        'v2-kostenplaatsen-id-GET' => [
+            'method' => 'GET',
+            'path' => '/kostenplaatsen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsKostenplaatsenKostenplaatsModel',
+        ],
+        'v2-kostenplaatsen-id-PUT' => [
+            'method' => 'PUT',
+            'path' => '/kostenplaatsen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsKostenplaatsenKostenplaatsModel',
+        ],
+        'v2-landen-GET' => [
+            'method' => 'GET',
+            'path' => '/landen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsLandenLandModelArray',
+        ],
+        'v2-landen-id-GET' => [
+            'method' => 'GET',
+            'path' => '/landen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsLandenLandModel',
+        ],
+        'v2-memoriaalboekingen-POST' => [
+            'method' => 'POST',
+            'path' => '/memoriaalboekingen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsBankboekingenMemoriaalboekingModel',
+        ],
+        'v2-memoriaalboekingen-id-DELETE' => [
+            'method' => 'DELETE',
+            'path' => '/memoriaalboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsBankboekingenMemoriaalboekingModel',
+        ],
+        'v2-memoriaalboekingen-id-GET' => [
+            'method' => 'GET',
+            'path' => '/memoriaalboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsBankboekingenMemoriaalboekingModel',
+        ],
+        'v2-memoriaalboekingen-id-PUT' => [
+            'method' => 'PUT',
+            'path' => '/memoriaalboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsBankboekingenMemoriaalboekingModel',
+        ],
+        'v2-offertes-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/offertes',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopordersOfferteModelArray',
+        ],
+        'v2-offertes-POST' => [
+            'method' => 'POST',
+            'path' => '/offertes',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopordersOfferteModel',
+        ],
+        'v2-offertes-id-DELETE' => [
+            'method' => 'DELETE',
+            'path' => '/offertes/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\OffertesIdDelete201ApplicationJsonResponse',
+        ],
+        'v2-offertes-id-GET' => [
+            'method' => 'GET',
+            'path' => '/offertes/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopordersOfferteModel',
+        ],
+        'v2-offertes-id-PUT' => [
+            'method' => 'PUT',
+            'path' => '/offertes/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopordersOfferteModel',
+        ],
+        'v2-prijsafspraken-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/prijsafspraken',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsPrijsafsprakenPrijsafspraakModelArray',
+        ],
+        'v2-rapportages-kolommenbalans-GET' => [
+            'method' => 'GET',
+            'path' => '/rapportages/kolommenbalans',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsRapportageKolommenbalansRegelModelArray',
+        ],
+        'v2-rapportages-periodebalans-GET' => [
+            'method' => 'GET',
+            'path' => '/rapportages/periodebalans',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsRapportagePeriodebalansRegelModelArray',
+        ],
+        'v2-relaties-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/relaties',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsRelatiesRelatieModelArray',
+        ],
+        'v2-relaties-POST' => [
+            'method' => 'POST',
+            'path' => '/relaties',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsRelatiesRelatieWriteModel',
+        ],
+        'v2-relaties-id-DELETE' => [
+            'method' => 'DELETE',
+            'path' => '/relaties/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\RelatiesIdDelete200ApplicationJsonResponse',
+        ],
+        'v2-relaties-id-GET' => [
+            'method' => 'GET',
+            'path' => '/relaties/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsRelatiesRelatieModel',
+        ],
+        'v2-relaties-id-PUT' => [
+            'method' => 'PUT',
+            'path' => '/relaties/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsRelatiesRelatieWriteModel',
+        ],
+        'v2-relaties-id-customFields-GET' => [
+            'method' => 'GET',
+            'path' => '/relaties/{id}/customFields',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsCustomFieldsRelatieCustomFieldsModel',
+        ],
+        'v2-relaties-id-customFields-PUT' => [
+            'method' => 'PUT',
+            'path' => '/relaties/{id}/customFields',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsCustomFieldsRelatieCustomFieldsModel',
+        ],
+        'v2-relaties-id-doorlopendeincassomachtigingen-GET' => [
+            'method' => 'GET',
+            'path' => '/relaties/{id}/doorlopendeincassomachtigingen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsRelatiesDoorlopendeIncassoMachtigingModelArray',
+        ],
+        'v2-relaties-id-inkoopboekingen-GET' => [
+            'method' => 'GET',
+            'path' => '/relaties/{id}/inkoopboekingen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsInkoopboekingenInkoopboekingModelArray',
+        ],
+        'v2-relaties-id-verkoopboekingen-GET' => [
+            'method' => 'GET',
+            'path' => '/relaties/{id}/verkoopboekingen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopBoekingenVerkoopBoekingModelArray',
+        ],
+        'v2-vatratedefinitions-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/vatratedefinitions',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVatRatesVatRateDefinitionModelArray',
+        ],
+        'v2-vatrates-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/vatrates',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVatRatesVatRatesModelArray',
+        ],
+        'v2-vatrates-id-GET' => [
+            'method' => 'GET',
+            'path' => '/vatrates/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVatRatesVatRatesModel',
+        ],
+        'v2-verkoopboekingen-POST' => [
+            'method' => 'POST',
+            'path' => '/verkoopboekingen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopBoekingenVerkoopBoekingModel',
+        ],
+        'v2-verkoopboekingen-id-DELETE' => [
+            'method' => 'DELETE',
+            'path' => '/verkoopboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\VerkoopboekingenIdDelete200ApplicationJsonResponse',
+        ],
+        'v2-verkoopboekingen-id-GET' => [
+            'method' => 'GET',
+            'path' => '/verkoopboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopBoekingenVerkoopBoekingModel',
+        ],
+        'v2-verkoopboekingen-id-PUT' => [
+            'method' => 'PUT',
+            'path' => '/verkoopboekingen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopBoekingenVerkoopBoekingModel',
+        ],
+        'v2-verkoopfacturen-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/verkoopfacturen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopfacturenVerkoopfactuurModelArray',
+        ],
+        'v2-verkoopfacturen-id-GET' => [
+            'method' => 'GET',
+            'path' => '/verkoopfacturen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopfacturenVerkoopfactuurModel',
+        ],
+        'v2-verkoopfacturen-id-ubl-GET' => [
+            'method' => 'GET',
+            'path' => '/verkoopfacturen/{id}/ubl',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\VerkoopfacturenIdUblGet200ApplicationJsonResponse',
+        ],
+        'v2-verkooporders-GET-OData' => [
+            'method' => 'GET',
+            'path' => '/verkooporders',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopordersVerkoopOrderModelArray',
+        ],
+        'v2-verkooporders-POST' => [
+            'method' => 'POST',
+            'path' => '/verkooporders',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopordersVerkoopOrderModel',
+        ],
+        'v2-verkooporders-id-DELETE' => [
+            'method' => 'DELETE',
+            'path' => '/verkooporders/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\VerkoopordersIdDelete201ApplicationJsonResponse',
+        ],
+        'v2-verkooporders-id-GET' => [
+            'method' => 'GET',
+            'path' => '/verkooporders/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopordersVerkoopOrderModel',
+        ],
+        'v2-verkooporders-id-PUT' => [
+            'method' => 'PUT',
+            'path' => '/verkooporders/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopordersVerkoopOrderModel',
+        ],
+        'v2-verkooporders-id-ProcesStatus-PUT' => [
+            'method' => 'PUT',
+            'path' => '/verkooporders/{id}/ProcesStatus',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\VerkoopordersIdProcesStatusPut200ApplicationJsonResponse',
+        ],
+        'v2-verkoopordersjablonen-GET' => [
+            'method' => 'GET',
+            'path' => '/verkoopordersjablonen',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopordersjablonenVerkoopOrderSjabloonModelA',
+        ],
+        'v2-verkoopordersjablonen-id-GET' => [
+            'method' => 'GET',
+            'path' => '/verkoopordersjablonen/{id}',
+            'response_kind' => 'class',
+            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\SnelStartB2BApiV2ModelsVerkoopordersjablonenVerkoopOrderSjabloonModel',
+        ],
+    ];
+
+    /** @return array{method: string, path: string, response_kind: string, response_type: string} */
+    public static function get(string $operationId): array
+    {
+        if (!isset(self::OPERATIONS[$operationId])) {
+            throw new InvalidArgumentException(sprintf('Unknown operation id: %s', $operationId));
+        }
+
+        return self::OPERATIONS[$operationId];
+    }
+
+    /** @return array<string, array{method: string, path: string, response_kind: string, response_type: string}> */
+    public static function all(): array
+    {
+        return self::OPERATIONS;
+    }
+}
