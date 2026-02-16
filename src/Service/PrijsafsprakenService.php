@@ -10,7 +10,7 @@ final class PrijsafsprakenService extends AbstractService
      * Operation ID: v2-prijsafspraken-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2PrijsafsprakenGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\PrijsafspraakModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\PrijsafspraakModelArray
     {
         $pathParams = [];
         $queryParams = [];

@@ -10,7 +10,7 @@ final class AuthorizationService extends AbstractService
      * Operation ID: v2-authorization-HasUserAccessToAdministration-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2AuthorizationHasUserAccessToAdministrationGET(string $userIdentifier): \SpiderDead\SnelStartApi\Model\AdministrationAccessModel
+    public function allHasUserAccessToAdministration(string $userIdentifier): \SpiderDead\SnelStartApi\Model\AdministrationAccessModel
     {
         $pathParams = [];
         $queryParams = [];

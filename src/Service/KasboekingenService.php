@@ -10,7 +10,7 @@ final class KasboekingenService extends AbstractService
      * Operation ID: v2-kasboekingen-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2KasboekingenGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\KasboekingModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\KasboekingModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -31,7 +31,7 @@ final class KasboekingenService extends AbstractService
      * Operation ID: v2-kasboekingen-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2KasboekingenPOST(?\SpiderDead\SnelStartApi\Model\KasboekingModel $body = null): \SpiderDead\SnelStartApi\Model\KasboekingModel
+    public function create(?\SpiderDead\SnelStartApi\Model\KasboekingModel $body = null): \SpiderDead\SnelStartApi\Model\KasboekingModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -43,7 +43,7 @@ final class KasboekingenService extends AbstractService
      * Operation ID: v2-kasboekingen-id-DELETE
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2KasboekingenIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
+    public function delete(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -56,7 +56,7 @@ final class KasboekingenService extends AbstractService
      * Operation ID: v2-kasboekingen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2KasboekingenIdGET(string $id): \SpiderDead\SnelStartApi\Model\KasboekingModel
+    public function get(string $id): \SpiderDead\SnelStartApi\Model\KasboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -69,7 +69,7 @@ final class KasboekingenService extends AbstractService
      * Operation ID: v2-kasboekingen-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2KasboekingenIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\KasboekingModel $body = null): \SpiderDead\SnelStartApi\Model\KasboekingModel
+    public function update(string $id, ?\SpiderDead\SnelStartApi\Model\KasboekingModel $body = null): \SpiderDead\SnelStartApi\Model\KasboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

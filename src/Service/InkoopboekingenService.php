@@ -10,7 +10,7 @@ final class InkoopboekingenService extends AbstractService
      * Operation ID: v2-inkoopboekingen-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2InkoopboekingenPOST(?\SpiderDead\SnelStartApi\Model\InkoopboekingModel $body = null): \SpiderDead\SnelStartApi\Model\InkoopboekingModel
+    public function create(?\SpiderDead\SnelStartApi\Model\InkoopboekingModel $body = null): \SpiderDead\SnelStartApi\Model\InkoopboekingModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -22,7 +22,7 @@ final class InkoopboekingenService extends AbstractService
      * Operation ID: v2-inkoopboekingen-CreateFromAttachment-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2InkoopboekingenCreateFromAttachmentPOST(?\SpiderDead\SnelStartApi\Model\AttachmentModel $body = null): \SpiderDead\SnelStartApi\Model\CreateFromAttachmentModel
+    public function createFromAttachment(?\SpiderDead\SnelStartApi\Model\AttachmentModel $body = null): \SpiderDead\SnelStartApi\Model\CreateFromAttachmentModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -34,7 +34,7 @@ final class InkoopboekingenService extends AbstractService
      * Operation ID: v2-inkoopboekingen-GetCreateFromAttachmentStatus-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2InkoopboekingenGetCreateFromAttachmentStatusGET(string $instanceId): \SpiderDead\SnelStartApi\Model\CreateFromAttachmentStatusModel
+    public function getCreateFromAttachmentStatus(string $instanceId): \SpiderDead\SnelStartApi\Model\CreateFromAttachmentStatusModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -47,7 +47,7 @@ final class InkoopboekingenService extends AbstractService
      * Operation ID: v2-inkoopboekingen-ubl-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2InkoopboekingenUblPOST(?\SpiderDead\SnelStartApi\Model\UblContentModel $body = null): \SpiderDead\SnelStartApi\Model\InkoopboekingModel
+    public function createUbl(?\SpiderDead\SnelStartApi\Model\UblContentModel $body = null): \SpiderDead\SnelStartApi\Model\InkoopboekingModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -59,7 +59,7 @@ final class InkoopboekingenService extends AbstractService
      * Operation ID: v2-inkoopboekingen-id-DELETE
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2InkoopboekingenIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
+    public function delete(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -72,7 +72,7 @@ final class InkoopboekingenService extends AbstractService
      * Operation ID: v2-inkoopboekingen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2InkoopboekingenIdGET(string $id): \SpiderDead\SnelStartApi\Model\InkoopboekingModel
+    public function get(string $id): \SpiderDead\SnelStartApi\Model\InkoopboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -85,7 +85,7 @@ final class InkoopboekingenService extends AbstractService
      * Operation ID: v2-inkoopboekingen-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2InkoopboekingenIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\InkoopboekingModel $body = null): \SpiderDead\SnelStartApi\Model\InkoopboekingModel
+    public function update(string $id, ?\SpiderDead\SnelStartApi\Model\InkoopboekingModel $body = null): \SpiderDead\SnelStartApi\Model\InkoopboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

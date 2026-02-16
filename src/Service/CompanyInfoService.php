@@ -10,7 +10,7 @@ final class CompanyInfoService extends AbstractService
      * Operation ID: v2-companyInfo-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2CompanyInfoGET(): \SpiderDead\SnelStartApi\Model\CompanyInfoModel
+    public function all(): \SpiderDead\SnelStartApi\Model\CompanyInfoModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -22,7 +22,7 @@ final class CompanyInfoService extends AbstractService
      * Operation ID: v2-companyInfo-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2CompanyInfoPUT(?\SpiderDead\SnelStartApi\Model\CompanyInfoModel $body = null): \SpiderDead\SnelStartApi\Model\CompanyInfoModel
+    public function update(?\SpiderDead\SnelStartApi\Model\CompanyInfoModel $body = null): \SpiderDead\SnelStartApi\Model\CompanyInfoModel
     {
         $pathParams = [];
         $queryParams = [];

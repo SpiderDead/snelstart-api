@@ -10,7 +10,7 @@ final class ActieprijzenService extends AbstractService
      * Operation ID: v2-actieprijzen-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2ActieprijzenGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\ActieprijzenModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\ActieprijzenModelArray
     {
         $pathParams = [];
         $queryParams = [];

@@ -10,7 +10,7 @@ final class RapportagesService extends AbstractService
      * Operation ID: v2-rapportages-kolommenbalans-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2RapportagesKolommenbalansGET(\DateTimeImmutable $end, \DateTimeImmutable $start): \SpiderDead\SnelStartApi\Model\KolommenbalansRegelModelArray
+    public function allKolommenbalans(\DateTimeImmutable $end, \DateTimeImmutable $start): \SpiderDead\SnelStartApi\Model\KolommenbalansRegelModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -24,7 +24,7 @@ final class RapportagesService extends AbstractService
      * Operation ID: v2-rapportages-periodebalans-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2RapportagesPeriodebalansGET(\DateTimeImmutable $end, \DateTimeImmutable $start): \SpiderDead\SnelStartApi\Model\PeriodebalansRegelModelArray
+    public function allPeriodebalans(\DateTimeImmutable $end, \DateTimeImmutable $start): \SpiderDead\SnelStartApi\Model\PeriodebalansRegelModelArray
     {
         $pathParams = [];
         $queryParams = [];

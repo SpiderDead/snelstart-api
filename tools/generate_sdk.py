@@ -374,14 +374,119 @@ def response_descriptor(schema: dict | None, schema_map: dict[str, str]) -> dict
     return {"kind": "mixed", "type": "mixed", "return": "mixed", "doc": "mixed"}
 
 
-def method_name_from_operation(operation_id: str, used: set[str]) -> str:
-    base = camel(operation_id)
-    if not base or base[0].isdigit():
-        base = "op" + studly(operation_id)
-        base = base[:1].lower() + base[1:]
-    if base.lower() in PHP_KEYWORDS:
-        base += "Operation"
-    return ensure_unique(base, used)
+def method_name_from_path(method: str, path: str, used: set[str]) -> str:
+    """
+    Generate a semantic method name based on HTTP method and path structure.
+    
+    The path structure for this API is:
+    - /{resource} (e.g., /artikelen)
+    - /{resource}/{id} (e.g., /artikelen/{id})
+    - /{resource}/{id}/{subresource} (e.g., /artikelen/{id}/customFields)
+    - /{resource}/{subresource} (e.g., /artikelen/prijsafspraken)
+    - /{resource}/{action} (e.g., /inkoopboekingen/CreateFromAttachment)
+    
+    Examples:
+    - GET /artikelen -> all()
+    - GET /artikelen/{id} -> get($id)
+    - POST /artikelen -> create()
+    - PUT /artikelen/{id} -> update($id)
+    - DELETE /artikelen/{id} -> delete($id)
+    - GET /artikelen/{id}/customFields -> getCustomFields($id)
+    - PUT /artikelen/{id}/customFields -> updateCustomFields($id)
+    - GET /artikelen/prijsafspraken -> allPrijsafspraken()
+    - POST /inkoopboekingen/CreateFromAttachment -> createFromAttachment()
+    """
+    # Remove leading slash and split into segments
+    segments = [s for s in path.split('/') if s]
+    
+    # First segment is the resource (handled by service), so we look at what comes after
+    # Possible patterns:
+    # [resource] - just the resource
+    # [resource, {id}] - resource with ID
+    # [resource, {id}, subresource] - resource ID with subresource
+    # [resource, subresource] - resource with subresource (no ID)
+    
+    if len(segments) <= 1:
+        # Just /{resource}
+        resource_segments = []
+        has_id_param = False
+    else:
+        # More than just the resource
+        resource_segments = segments[1:]
+        has_id_param = any(s == '{id}' for s in resource_segments)
+    
+    # Separate path params from literal segments
+    literal_segments = []
+    
+    for segment in resource_segments:
+        if segment.startswith('{') and segment.endswith('}'):
+            # This is a path parameter - skip it
+            continue
+        else:
+            literal_segments.append(segment)
+    
+    # Build method name based on HTTP method and path structure
+    http_method = method.lower()
+    
+    # Base method name from HTTP method
+    if http_method == 'get':
+        if has_id_param:
+            # GET /{resource}/{id}/... -> get...
+            base = 'get'
+        else:
+            # GET /{resource} or GET /{resource}/subresource -> all...
+            base = 'all'
+    elif http_method == 'post':
+        base = 'create'
+    elif http_method == 'put':
+        base = 'update'
+    elif http_method == 'patch':
+        base = 'patch'
+    elif http_method == 'delete':
+        base = 'delete'
+    else:
+        base = http_method
+    
+    # Add sub-resource or action segments
+    if literal_segments:
+        # Check if the first literal segment looks like an action (starts with a verb)
+        first_segment = literal_segments[0]
+        action_verbs = ['Create', 'Update', 'Delete', 'Get', 'List', 'Set', 'Add', 'Remove', 'Send', 'Process']
+        
+        # If the segment starts with an action verb, it's probably an RPC-style action
+        # Use the segment as-is (in camelCase) instead of prefixing with HTTP method
+        is_action = any(first_segment.startswith(verb) for verb in action_verbs)
+        
+        if is_action and len(literal_segments) == 1:
+            # RPC-style action like /inkoopboekingen/CreateFromAttachment
+            # Just use the action name in camelCase
+            method_name = camel(first_segment)
+        else:
+            # Regular sub-resource like /artikelen/prijsafspraken or /artikelen/{id}/customFields
+            # Prefix with HTTP method verb
+            suffix_parts = []
+            for segment in literal_segments:
+                # Convert to StudlyCase first
+                studly_segment = studly(segment)
+                suffix_parts.append(studly_segment)
+            
+            suffix = ''.join(suffix_parts)
+            method_name = base + suffix
+    else:
+        method_name = base
+    
+    # Ensure it doesn't conflict with problematic PHP keywords
+    # Note: Some keywords like 'list', 'array', 'echo' are fine as method names
+    # Only avoid keywords that would cause actual syntax errors
+    problematic_keywords = {
+        'class', 'interface', 'trait', 'function', 'const', 'var',
+        'public', 'private', 'protected', 'static', 'final', 'abstract',
+        'namespace', 'use', 'extends', 'implements'
+    }
+    if method_name.lower() in problematic_keywords:
+        method_name += 'Resource'
+    
+    return ensure_unique(method_name, used)
 
 
 def generate_model_class(schema: dict, class_name: str, schema_map: dict[str, str]) -> str:
@@ -545,7 +650,7 @@ def generate_operation_data(spec: dict, schema_map: dict[str, str]) -> tuple[lis
     for tag_ops in tags.values():
         used: set[str] = set()
         for op in tag_ops:
-            op["method_name"] = method_name_from_operation(op["operation_id"], used)
+            op["method_name"] = method_name_from_path(op["method"], op["path"], used)
     return operations, tags
 
 

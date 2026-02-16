@@ -10,7 +10,7 @@ final class ArtikelenService extends AbstractService
      * Operation ID: v2-artikelen-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2ArtikelenGETOData(?string $filter = null, ?int $skip = null, ?int $top = null, ?int $aantal = null, ?string $relatieId = null): \SpiderDead\SnelStartApi\Model\ArtikelQueryModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null, ?int $aantal = null, ?string $relatieId = null): \SpiderDead\SnelStartApi\Model\ArtikelQueryModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -37,7 +37,7 @@ final class ArtikelenService extends AbstractService
      * Operation ID: v2-artikelen-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2ArtikelenPOST(?\SpiderDead\SnelStartApi\Model\ArtikelModel $body = null): \SpiderDead\SnelStartApi\Model\ArtikelModel
+    public function create(?\SpiderDead\SnelStartApi\Model\ArtikelModel $body = null): \SpiderDead\SnelStartApi\Model\ArtikelModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -49,7 +49,7 @@ final class ArtikelenService extends AbstractService
      * Operation ID: v2-artikelen-prijsafspraken-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2ArtikelenPrijsafsprakenGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\ArtikelPrijsAfsprakenModelArray
+    public function allPrijsafspraken(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\ArtikelPrijsAfsprakenModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -70,7 +70,7 @@ final class ArtikelenService extends AbstractService
      * Operation ID: v2-artikelen-id-DELETE
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2ArtikelenIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
+    public function delete(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -83,7 +83,7 @@ final class ArtikelenService extends AbstractService
      * Operation ID: v2-artikelen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2ArtikelenIdGET(string $id, ?int $aantal = null, ?string $relatieId = null): \SpiderDead\SnelStartApi\Model\ArtikelQueryModel
+    public function get(string $id, ?int $aantal = null, ?string $relatieId = null): \SpiderDead\SnelStartApi\Model\ArtikelQueryModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -102,7 +102,7 @@ final class ArtikelenService extends AbstractService
      * Operation ID: v2-artikelen-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2ArtikelenIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\ArtikelModel $body = null): \SpiderDead\SnelStartApi\Model\ArtikelModel
+    public function update(string $id, ?\SpiderDead\SnelStartApi\Model\ArtikelModel $body = null): \SpiderDead\SnelStartApi\Model\ArtikelModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -115,7 +115,7 @@ final class ArtikelenService extends AbstractService
      * Operation ID: v2-artikelen-id-customFields-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2ArtikelenIdCustomFieldsGET(string $id): \SpiderDead\SnelStartApi\Model\CustomFieldDtoArray
+    public function getCustomFields(string $id): \SpiderDead\SnelStartApi\Model\CustomFieldDtoArray
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -128,7 +128,7 @@ final class ArtikelenService extends AbstractService
      * Operation ID: v2-artikelen-id-customFields-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2ArtikelenIdCustomFieldsPUT(string $id, ?\SpiderDead\SnelStartApi\Model\UpdatedCustomFieldModelArray $body = null): \SpiderDead\SnelStartApi\Model\CustomFieldDtoArray
+    public function updateCustomFields(string $id, ?\SpiderDead\SnelStartApi\Model\UpdatedCustomFieldModelArray $body = null): \SpiderDead\SnelStartApi\Model\CustomFieldDtoArray
     {
         $pathParams = [];
         $pathParams['id'] = $id;

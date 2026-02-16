@@ -10,7 +10,7 @@ final class ArtikelomzetgroepenService extends AbstractService
      * Operation ID: v2-artikelomzetgroepen-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2ArtikelomzetgroepenGET(): \SpiderDead\SnelStartApi\Model\ArtikelOmzetGroepModelArray
+    public function all(): \SpiderDead\SnelStartApi\Model\ArtikelOmzetGroepModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -22,7 +22,7 @@ final class ArtikelomzetgroepenService extends AbstractService
      * Operation ID: v2-artikelomzetgroepen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2ArtikelomzetgroepenIdGET(string $id): \SpiderDead\SnelStartApi\Model\ArtikelOmzetGroepModel
+    public function get(string $id): \SpiderDead\SnelStartApi\Model\ArtikelOmzetGroepModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

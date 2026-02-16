@@ -10,7 +10,7 @@ final class VerkoopfacturenService extends AbstractService
      * Operation ID: v2-verkoopfacturen-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VerkoopfacturenGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\VerkoopfactuurModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\VerkoopfactuurModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -31,7 +31,7 @@ final class VerkoopfacturenService extends AbstractService
      * Operation ID: v2-verkoopfacturen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VerkoopfacturenIdGET(string $id): \SpiderDead\SnelStartApi\Model\VerkoopfactuurModel
+    public function get(string $id): \SpiderDead\SnelStartApi\Model\VerkoopfactuurModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -44,7 +44,7 @@ final class VerkoopfacturenService extends AbstractService
      * Operation ID: v2-verkoopfacturen-id-ubl-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VerkoopfacturenIdUblGET(string $id): \SpiderDead\SnelStartApi\Model\VerkoopfacturenIdUblGet200ApplicationJsonResponse
+    public function getUbl(string $id): \SpiderDead\SnelStartApi\Model\VerkoopfacturenIdUblGet200ApplicationJsonResponse
     {
         $pathParams = [];
         $pathParams['id'] = $id;

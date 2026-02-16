@@ -10,7 +10,7 @@ final class OffertesService extends AbstractService
      * Operation ID: v2-offertes-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2OffertesGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\OfferteModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\OfferteModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -31,7 +31,7 @@ final class OffertesService extends AbstractService
      * Operation ID: v2-offertes-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2OffertesPOST(?\SpiderDead\SnelStartApi\Model\OfferteModel $body = null): \SpiderDead\SnelStartApi\Model\OfferteModel
+    public function create(?\SpiderDead\SnelStartApi\Model\OfferteModel $body = null): \SpiderDead\SnelStartApi\Model\OfferteModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -43,7 +43,7 @@ final class OffertesService extends AbstractService
      * Operation ID: v2-offertes-id-DELETE
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2OffertesIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
+    public function delete(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -56,7 +56,7 @@ final class OffertesService extends AbstractService
      * Operation ID: v2-offertes-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2OffertesIdGET(string $id): \SpiderDead\SnelStartApi\Model\OfferteModel
+    public function get(string $id): \SpiderDead\SnelStartApi\Model\OfferteModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -69,7 +69,7 @@ final class OffertesService extends AbstractService
      * Operation ID: v2-offertes-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2OffertesIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\OfferteModel $body = null): \SpiderDead\SnelStartApi\Model\OfferteModel
+    public function update(string $id, ?\SpiderDead\SnelStartApi\Model\OfferteModel $body = null): \SpiderDead\SnelStartApi\Model\OfferteModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

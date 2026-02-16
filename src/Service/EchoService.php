@@ -10,7 +10,7 @@ final class EchoService extends AbstractService
      * Operation ID: v2-echo-input-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2EchoInputGET(string $input): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
+    public function all(string $input): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
     {
         $pathParams = [];
         $pathParams['input'] = $input;

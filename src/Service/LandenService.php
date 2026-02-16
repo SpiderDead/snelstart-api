@@ -10,7 +10,7 @@ final class LandenService extends AbstractService
      * Operation ID: v2-landen-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2LandenGET(): \SpiderDead\SnelStartApi\Model\LandModelArray
+    public function all(): \SpiderDead\SnelStartApi\Model\LandModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -22,7 +22,7 @@ final class LandenService extends AbstractService
      * Operation ID: v2-landen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2LandenIdGET(string $id): \SpiderDead\SnelStartApi\Model\LandModel
+    public function get(string $id): \SpiderDead\SnelStartApi\Model\LandModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

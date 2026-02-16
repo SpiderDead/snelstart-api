@@ -10,7 +10,7 @@ final class MemoriaalboekingenService extends AbstractService
      * Operation ID: v2-memoriaalboekingen-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2MemoriaalboekingenPOST(?\SpiderDead\SnelStartApi\Model\MemoriaalboekingModel $body = null): \SpiderDead\SnelStartApi\Model\MemoriaalboekingModel
+    public function create(?\SpiderDead\SnelStartApi\Model\MemoriaalboekingModel $body = null): \SpiderDead\SnelStartApi\Model\MemoriaalboekingModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -22,7 +22,7 @@ final class MemoriaalboekingenService extends AbstractService
      * Operation ID: v2-memoriaalboekingen-id-DELETE
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2MemoriaalboekingenIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\MemoriaalboekingModel
+    public function delete(string $id): \SpiderDead\SnelStartApi\Model\MemoriaalboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -35,7 +35,7 @@ final class MemoriaalboekingenService extends AbstractService
      * Operation ID: v2-memoriaalboekingen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2MemoriaalboekingenIdGET(string $id): \SpiderDead\SnelStartApi\Model\MemoriaalboekingModel
+    public function get(string $id): \SpiderDead\SnelStartApi\Model\MemoriaalboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -48,7 +48,7 @@ final class MemoriaalboekingenService extends AbstractService
      * Operation ID: v2-memoriaalboekingen-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2MemoriaalboekingenIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\MemoriaalboekingModel $body = null): \SpiderDead\SnelStartApi\Model\MemoriaalboekingModel
+    public function update(string $id, ?\SpiderDead\SnelStartApi\Model\MemoriaalboekingModel $body = null): \SpiderDead\SnelStartApi\Model\MemoriaalboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
