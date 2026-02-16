@@ -60,6 +60,33 @@ final class SnelStartClient
         $this->transport = new ApiTransport($httpClient, $requestFactory, $streamFactory, $config, $codec);
     }
 
+    /**
+     * Create a client with default HTTP client and factories.
+     * 
+     * Requires symfony/http-client and nyholm/psr7 packages.
+     */
+    public static function create(ClientConfig $config, ?SerializerInterface $serializer = null): self
+    {
+        if (!class_exists('Symfony\Component\HttpClient\Psr18Client')) {
+            throw new \RuntimeException(
+                'symfony/http-client is required for SnelStartClient::create(). ' .
+                'Install it with: composer require symfony/http-client nyholm/psr7'
+            );
+        }
+
+        if (!class_exists('Nyholm\Psr7\Factory\Psr17Factory')) {
+            throw new \RuntimeException(
+                'nyholm/psr7 is required for SnelStartClient::create(). ' .
+                'Install it with: composer require symfony/http-client nyholm/psr7'
+            );
+        }
+
+        $httpClient = new \Symfony\Component\HttpClient\Psr18Client();
+        $factory = new \Nyholm\Psr7\Factory\Psr17Factory();
+
+        return new self($httpClient, $factory, $factory, $config, $serializer);
+    }
+
     public function transport(): ApiTransport
     {
         return $this->transport;
