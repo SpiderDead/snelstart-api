@@ -8,9 +8,10 @@ final class BankboekingenService extends AbstractService
 {
     /**
      * Operation ID: v2-bankboekingen-GET-OData
+     * @return array<int, \SpiderDead\SnelStartApi\Model\BankboekingModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\BankboekingModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
     {
         $pathParams = [];
         $queryParams = [];

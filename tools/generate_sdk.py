@@ -268,6 +268,7 @@ def build_schema_class_map(schemas: dict[str, dict], reachable: set[str]) -> dic
     Build a map from schema keys to PHP class names.
     Only includes reachable schemas and uses shortened names.
     Deduplicates identical schemas to avoid generating redundant classes.
+    Skips array wrapper schemas as they're handled inline.
     """
     # Find duplicates first
     duplicates = find_duplicate_schemas(schemas)
@@ -275,10 +276,15 @@ def build_schema_class_map(schemas: dict[str, dict], reachable: set[str]) -> dic
     used: set[str] = set()
     mapping: dict[str, str] = {}
     
-    # First pass: assign short names to canonical schemas
+    # First pass: assign short names to canonical schemas (skip array wrappers)
     for key in sorted(schemas.keys()):
         if key not in reachable:
             continue  # Skip unreachable schemas
+        
+        # Skip array wrapper schemas - they will be handled inline as ModelClass[]
+        schema = schemas[key]
+        if schema.get("type") == "array":
+            continue
         
         # If this is a duplicate, map it to the canonical class
         if key in duplicates:
@@ -296,6 +302,11 @@ def build_schema_class_map(schemas: dict[str, dict], reachable: set[str]) -> dic
     # Second pass: map duplicates to their canonical class
     for key in sorted(schemas.keys()):
         if key not in reachable:
+            continue
+        
+        # Skip array wrappers
+        schema = schemas[key]
+        if schema.get("type") == "array":
             continue
         
         if key in duplicates:
@@ -342,12 +353,32 @@ def optional_type(native: str, required: bool) -> tuple[str, str]:
     return f"?{native}", " = null"
 
 
-def response_descriptor(schema: dict | None, schema_map: dict[str, str]) -> dict[str, str]:
+def response_descriptor(schema: dict | None, schema_map: dict[str, str], schemas: dict[str, dict]) -> dict[str, str]:
     if not schema:
         return {"kind": "none", "type": "", "return": "void", "doc": "void"}
 
     if "$ref" in schema:
         key = schema_key_from_ref(schema["$ref"])
+        # Check if the referenced schema is actually an array type
+        if key in schemas:
+            ref_schema = schemas[key]
+            if ref_schema.get("type") == "array":
+                # This is an array schema - handle it as an array, not a wrapper class
+                items = ref_schema.get("items") or {}
+                if "$ref" in items:
+                    item_key = schema_key_from_ref(items["$ref"])
+                    item_cls = schema_map.get(item_key)
+                    if item_cls:
+                        fqcn = f"\\{MODEL_NAMESPACE}\\{item_cls}"
+                        return {"kind": "array", "type": f"array<{fqcn}>", "return": "array", "doc": f"array<int, {fqcn}>"}
+                item_native, _ = resolve_native_type(items, schema_map)
+                if item_native == "array":
+                    # array of arrays or untyped object
+                    return {"kind": "array", "type": "array", "return": "array", "doc": "array<int, mixed>"}
+                doc_type = item_native if item_native != "mixed" else "mixed"
+                return {"kind": "array", "type": "array", "return": "array", "doc": f"array<int, {doc_type}>"}
+        
+        # Not an array, treat as regular class
         cls = schema_map.get(key)
         if cls:
             fqcn = f"\\{MODEL_NAMESPACE}\\{cls}"
@@ -363,6 +394,9 @@ def response_descriptor(schema: dict | None, schema_map: dict[str, str]) -> dict
                 fqcn = f"\\{MODEL_NAMESPACE}\\{cls}"
                 return {"kind": "array", "type": f"array<{fqcn}>", "return": "array", "doc": f"array<int, {fqcn}>"}
         item_native, _ = resolve_native_type(items, schema_map)
+        if item_native == "array":
+            # array of arrays or untyped object
+            return {"kind": "array", "type": "array", "return": "array", "doc": "array<int, mixed>"}
         doc_type = item_native if item_native != "mixed" else "mixed"
         return {"kind": "array", "type": "array", "return": "array", "doc": f"array<int, {doc_type}>"}
 
@@ -565,6 +599,7 @@ final class {class_name}
 
 def generate_operation_data(spec: dict, schema_map: dict[str, str]) -> tuple[list[dict], dict[str, list[dict]]]:
     operations: list[dict] = []
+    schemas = (spec.get("components") or {}).get("schemas") or {}
     paths = spec.get("paths") or {}
     for path in sorted(paths.keys()):
         path_item = paths[path] or {}
@@ -640,7 +675,7 @@ def generate_operation_data(spec: dict, schema_map: dict[str, str]) -> tuple[lis
                     "tag": tag,
                     "params": params,
                     "body": body,
-                    "response": response_descriptor(response_schema, schema_map),
+                    "response": response_descriptor(response_schema, schema_map, schemas),
                 }
             )
 

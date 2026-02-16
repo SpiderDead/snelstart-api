@@ -8,9 +8,10 @@ final class BtwtarievenService extends AbstractService
 {
     /**
      * Operation ID: v2-btwtarieven-GET
+     * @return array<int, \SpiderDead\SnelStartApi\Model\BtwTariefModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(): \SpiderDead\SnelStartApi\Model\BtwTariefModelArray
+    public function all(): array
     {
         $pathParams = [];
         $queryParams = [];

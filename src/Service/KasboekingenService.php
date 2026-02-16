@@ -8,9 +8,10 @@ final class KasboekingenService extends AbstractService
 {
     /**
      * Operation ID: v2-kasboekingen-GET-OData
+     * @return array<int, \SpiderDead\SnelStartApi\Model\KasboekingModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\KasboekingModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
     {
         $pathParams = [];
         $queryParams = [];

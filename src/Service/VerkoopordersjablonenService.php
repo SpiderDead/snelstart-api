@@ -8,9 +8,10 @@ final class VerkoopordersjablonenService extends AbstractService
 {
     /**
      * Operation ID: v2-verkoopordersjablonen-GET
+     * @return array<int, \SpiderDead\SnelStartApi\Model\VerkoopOrderSjabloonModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(): \SpiderDead\SnelStartApi\Model\VerkoopOrderSjabloonModelA
+    public function all(): array
     {
         $pathParams = [];
         $queryParams = [];

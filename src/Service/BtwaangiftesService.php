@@ -8,9 +8,10 @@ final class BtwaangiftesService extends AbstractService
 {
     /**
      * Operation ID: v2-btwaangiftes-GET-OData
+     * @return array<int, \SpiderDead\SnelStartApi\Model\BtwAangifteModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\BtwAangifteModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
     {
         $pathParams = [];
         $queryParams = [];

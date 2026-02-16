@@ -13,14 +13,14 @@ final class OperationMap
         'v2-actieprijzen-GET-OData' => [
             'method' => 'GET',
             'path' => '/actieprijzen',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ActieprijzenModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\ActieprijzenModel>',
         ],
         'v2-artikelen-GET-OData' => [
             'method' => 'GET',
             'path' => '/artikelen',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelQueryModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\ArtikelQueryModel>',
         ],
         'v2-artikelen-POST' => [
             'method' => 'POST',
@@ -49,26 +49,26 @@ final class OperationMap
         'v2-artikelen-id-customFields-GET' => [
             'method' => 'GET',
             'path' => '/artikelen/{id}/customFields',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\CustomFieldDtoArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\CustomFieldDto>',
         ],
         'v2-artikelen-id-customFields-PUT' => [
             'method' => 'PUT',
             'path' => '/artikelen/{id}/customFields',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\CustomFieldDtoArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\CustomFieldDto>',
         ],
         'v2-artikelen-prijsafspraken-GET-OData' => [
             'method' => 'GET',
             'path' => '/artikelen/prijsafspraken',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelPrijsAfsprakenModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\ArtikelPrijsAfsprakenModel>',
         ],
         'v2-artikelomzetgroepen-GET' => [
             'method' => 'GET',
             'path' => '/artikelomzetgroepen',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelOmzetGroepModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\ArtikelOmzetGroepModel>',
         ],
         'v2-artikelomzetgroepen-id-GET' => [
             'method' => 'GET',
@@ -85,14 +85,14 @@ final class OperationMap
         'v2-bankafschriftbestanden-POST' => [
             'method' => 'POST',
             'path' => '/bankafschriftbestanden',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\BankafschriftBestandResponseArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\BankafschriftBestandResponse>',
         ],
         'v2-bankboekingen-GET-OData' => [
             'method' => 'GET',
             'path' => '/bankboekingen',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\BankboekingModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\BankboekingModel>',
         ],
         'v2-bankboekingen-POST' => [
             'method' => 'POST',
@@ -121,8 +121,8 @@ final class OperationMap
         'v2-btwaangiftes-GET-OData' => [
             'method' => 'GET',
             'path' => '/btwaangiftes',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\BtwAangifteModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\BtwAangifteModel>',
         ],
         'v2-btwaangiftes-id-GET' => [
             'method' => 'GET',
@@ -139,8 +139,8 @@ final class OperationMap
         'v2-btwtarieven-GET' => [
             'method' => 'GET',
             'path' => '/btwtarieven',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\BtwTariefModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\BtwTariefModel>',
         ],
         'v2-companyInfo-GET' => [
             'method' => 'GET',
@@ -157,8 +157,8 @@ final class OperationMap
         'v2-dagboeken-GET' => [
             'method' => 'GET',
             'path' => '/dagboeken',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\DagboekModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\DagboekModel>',
         ],
         'v2-documenten-documenttype-POST' => [
             'method' => 'POST',
@@ -169,8 +169,8 @@ final class OperationMap
         'v2-documenten-documenttype-pid-GET' => [
             'method' => 'GET',
             'path' => '/documenten/{documenttype}/{pid}',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\VerkoopBoekingBijlageReferenceModelArra',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\VerkoopBoekingBijlageReferenceModel>',
         ],
         'v2-documenten-id-DELETE' => [
             'method' => 'DELETE',
@@ -199,8 +199,8 @@ final class OperationMap
         'v2-grootboeken-GET-OData' => [
             'method' => 'GET',
             'path' => '/grootboeken',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\GrootboekModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\GrootboekModel>',
         ],
         'v2-grootboeken-POST' => [
             'method' => 'POST',
@@ -217,8 +217,8 @@ final class OperationMap
         'v2-grootboekmutaties-GET-OData' => [
             'method' => 'GET',
             'path' => '/grootboekmutaties',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\GrootboekMutatieModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\GrootboekMutatieModel>',
         ],
         'v2-grootboekmutaties-id-GET' => [
             'method' => 'GET',
@@ -271,14 +271,14 @@ final class OperationMap
         'v2-inkoopfacturen-GET-OData' => [
             'method' => 'GET',
             'path' => '/inkoopfacturen',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\InkoopfactuurModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\InkoopfactuurModel>',
         ],
         'v2-kasboekingen-GET-OData' => [
             'method' => 'GET',
             'path' => '/kasboekingen',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\KasboekingModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\KasboekingModel>',
         ],
         'v2-kasboekingen-POST' => [
             'method' => 'POST',
@@ -307,8 +307,8 @@ final class OperationMap
         'v2-kostenplaatsen-GET' => [
             'method' => 'GET',
             'path' => '/kostenplaatsen',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\KostenplaatsModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\KostenplaatsModel>',
         ],
         'v2-kostenplaatsen-POST' => [
             'method' => 'POST',
@@ -337,8 +337,8 @@ final class OperationMap
         'v2-landen-GET' => [
             'method' => 'GET',
             'path' => '/landen',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\LandModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\LandModel>',
         ],
         'v2-landen-id-GET' => [
             'method' => 'GET',
@@ -373,8 +373,8 @@ final class OperationMap
         'v2-offertes-GET-OData' => [
             'method' => 'GET',
             'path' => '/offertes',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\OfferteModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\OfferteModel>',
         ],
         'v2-offertes-POST' => [
             'method' => 'POST',
@@ -403,26 +403,26 @@ final class OperationMap
         'v2-prijsafspraken-GET-OData' => [
             'method' => 'GET',
             'path' => '/prijsafspraken',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\PrijsafspraakModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\PrijsafspraakModel2>',
         ],
         'v2-rapportages-kolommenbalans-GET' => [
             'method' => 'GET',
             'path' => '/rapportages/kolommenbalans',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\KolommenbalansRegelModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\KolommenbalansRegelModel>',
         ],
         'v2-rapportages-periodebalans-GET' => [
             'method' => 'GET',
             'path' => '/rapportages/periodebalans',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\PeriodebalansRegelModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\PeriodebalansRegelModel>',
         ],
         'v2-relaties-GET-OData' => [
             'method' => 'GET',
             'path' => '/relaties',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\RelatieModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\RelatieModel>',
         ],
         'v2-relaties-POST' => [
             'method' => 'POST',
@@ -463,32 +463,32 @@ final class OperationMap
         'v2-relaties-id-doorlopendeincassomachtigingen-GET' => [
             'method' => 'GET',
             'path' => '/relaties/{id}/doorlopendeincassomachtigingen',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\DoorlopendeIncassoMachtigingModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\DoorlopendeIncassoMachtigingModel>',
         ],
         'v2-relaties-id-inkoopboekingen-GET' => [
             'method' => 'GET',
             'path' => '/relaties/{id}/inkoopboekingen',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\InkoopboekingModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\InkoopboekingModel>',
         ],
         'v2-relaties-id-verkoopboekingen-GET' => [
             'method' => 'GET',
             'path' => '/relaties/{id}/verkoopboekingen',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\VerkoopBoekingModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\VerkoopBoekingModel>',
         ],
         'v2-vatratedefinitions-GET-OData' => [
             'method' => 'GET',
             'path' => '/vatratedefinitions',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\VatRateDefinitionModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\VatRateDefinitionModel>',
         ],
         'v2-vatrates-GET-OData' => [
             'method' => 'GET',
             'path' => '/vatrates',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\VatRatesModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\VatRatesModel>',
         ],
         'v2-vatrates-id-GET' => [
             'method' => 'GET',
@@ -523,8 +523,8 @@ final class OperationMap
         'v2-verkoopfacturen-GET-OData' => [
             'method' => 'GET',
             'path' => '/verkoopfacturen',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\VerkoopfactuurModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\VerkoopfactuurModel>',
         ],
         'v2-verkoopfacturen-id-GET' => [
             'method' => 'GET',
@@ -535,14 +535,14 @@ final class OperationMap
         'v2-verkoopfacturen-id-ubl-GET' => [
             'method' => 'GET',
             'path' => '/verkoopfacturen/{id}/ubl',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\VerkoopfacturenIdUblGet200ApplicationJsonResponse',
+            'response_kind' => 'array',
+            'response_type' => 'array',
         ],
         'v2-verkooporders-GET-OData' => [
             'method' => 'GET',
             'path' => '/verkooporders',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\VerkoopOrderModelArray',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\VerkoopOrderModel>',
         ],
         'v2-verkooporders-POST' => [
             'method' => 'POST',
@@ -577,8 +577,8 @@ final class OperationMap
         'v2-verkoopordersjablonen-GET' => [
             'method' => 'GET',
             'path' => '/verkoopordersjablonen',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\VerkoopOrderSjabloonModelA',
+            'response_kind' => 'array',
+            'response_type' => 'array<\\SpiderDead\\SnelStartApi\\Model\\VerkoopOrderSjabloonModel>',
         ],
         'v2-verkoopordersjablonen-id-GET' => [
             'method' => 'GET',

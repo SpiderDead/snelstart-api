@@ -8,9 +8,10 @@ final class VerkoopordersService extends AbstractService
 {
     /**
      * Operation ID: v2-verkooporders-GET-OData
+     * @return array<int, \SpiderDead\SnelStartApi\Model\VerkoopOrderModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\VerkoopOrderModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
     {
         $pathParams = [];
         $queryParams = [];

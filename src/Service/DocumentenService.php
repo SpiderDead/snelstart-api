@@ -21,9 +21,10 @@ final class DocumentenService extends AbstractService
 
     /**
      * Operation ID: v2-documenten-documenttype-pid-GET
+     * @return array<int, \SpiderDead\SnelStartApi\Model\VerkoopBoekingBijlageReferenceModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(string $documenttype, string $pid): \SpiderDead\SnelStartApi\Model\VerkoopBoekingBijlageReferenceModelArra
+    public function all(string $documenttype, string $pid): array
     {
         $pathParams = [];
         $pathParams['documenttype'] = $documenttype;

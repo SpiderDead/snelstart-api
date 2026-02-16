@@ -8,9 +8,10 @@ final class RelatiesService extends AbstractService
 {
     /**
      * Operation ID: v2-relaties-GET-OData
+     * @return array<int, \SpiderDead\SnelStartApi\Model\RelatieModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\RelatieModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
     {
         $pathParams = [];
         $queryParams = [];
@@ -106,9 +107,10 @@ final class RelatiesService extends AbstractService
 
     /**
      * Operation ID: v2-relaties-id-doorlopendeincassomachtigingen-GET
+     * @return array<int, \SpiderDead\SnelStartApi\Model\DoorlopendeIncassoMachtigingModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function getDoorlopendeincassomachtigingen(string $id): \SpiderDead\SnelStartApi\Model\DoorlopendeIncassoMachtigingModelArray
+    public function getDoorlopendeincassomachtigingen(string $id): array
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -119,9 +121,10 @@ final class RelatiesService extends AbstractService
 
     /**
      * Operation ID: v2-relaties-id-inkoopboekingen-GET
+     * @return array<int, \SpiderDead\SnelStartApi\Model\InkoopboekingModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function getInkoopboekingen(string $id): \SpiderDead\SnelStartApi\Model\InkoopboekingModelArray
+    public function getInkoopboekingen(string $id): array
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -132,9 +135,10 @@ final class RelatiesService extends AbstractService
 
     /**
      * Operation ID: v2-relaties-id-verkoopboekingen-GET
+     * @return array<int, \SpiderDead\SnelStartApi\Model\VerkoopBoekingModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function getVerkoopboekingen(string $id): \SpiderDead\SnelStartApi\Model\VerkoopBoekingModelArray
+    public function getVerkoopboekingen(string $id): array
     {
         $pathParams = [];
         $pathParams['id'] = $id;

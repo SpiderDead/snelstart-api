@@ -8,9 +8,10 @@ final class VatratedefinitionsService extends AbstractService
 {
     /**
      * Operation ID: v2-vatratedefinitions-GET-OData
+     * @return array<int, \SpiderDead\SnelStartApi\Model\VatRateDefinitionModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\VatRateDefinitionModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
     {
         $pathParams = [];
         $queryParams = [];

@@ -8,9 +8,10 @@ final class OffertesService extends AbstractService
 {
     /**
      * Operation ID: v2-offertes-GET-OData
+     * @return array<int, \SpiderDead\SnelStartApi\Model\OfferteModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\OfferteModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
     {
         $pathParams = [];
         $queryParams = [];

@@ -8,9 +8,10 @@ final class LandenService extends AbstractService
 {
     /**
      * Operation ID: v2-landen-GET
+     * @return array<int, \SpiderDead\SnelStartApi\Model\LandModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(): \SpiderDead\SnelStartApi\Model\LandModelArray
+    public function all(): array
     {
         $pathParams = [];
         $queryParams = [];

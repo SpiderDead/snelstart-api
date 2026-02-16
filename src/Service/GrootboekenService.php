@@ -8,9 +8,10 @@ final class GrootboekenService extends AbstractService
 {
     /**
      * Operation ID: v2-grootboeken-GET-OData
+     * @return array<int, \SpiderDead\SnelStartApi\Model\GrootboekModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\GrootboekModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
     {
         $pathParams = [];
         $queryParams = [];

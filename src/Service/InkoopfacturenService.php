@@ -8,9 +8,10 @@ final class InkoopfacturenService extends AbstractService
 {
     /**
      * Operation ID: v2-inkoopfacturen-GET-OData
+     * @return array<int, \SpiderDead\SnelStartApi\Model\InkoopfactuurModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\InkoopfactuurModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
     {
         $pathParams = [];
         $queryParams = [];

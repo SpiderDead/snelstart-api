@@ -8,9 +8,10 @@ final class BankafschriftbestandenService extends AbstractService
 {
     /**
      * Operation ID: v2-bankafschriftbestanden-POST
+     * @return array<int, \SpiderDead\SnelStartApi\Model\BankafschriftBestandResponse>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function create(?\SpiderDead\SnelStartApi\Model\BankafschriftBestandArray $body = null): \SpiderDead\SnelStartApi\Model\BankafschriftBestandResponseArray
+    public function create(mixed $body = null): array
     {
         $pathParams = [];
         $queryParams = [];

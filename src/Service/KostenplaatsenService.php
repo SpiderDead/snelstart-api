@@ -8,9 +8,10 @@ final class KostenplaatsenService extends AbstractService
 {
     /**
      * Operation ID: v2-kostenplaatsen-GET
+     * @return array<int, \SpiderDead\SnelStartApi\Model\KostenplaatsModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(): \SpiderDead\SnelStartApi\Model\KostenplaatsModelArray
+    public function all(): array
     {
         $pathParams = [];
         $queryParams = [];

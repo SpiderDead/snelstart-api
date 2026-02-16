@@ -8,9 +8,10 @@ final class ArtikelenService extends AbstractService
 {
     /**
      * Operation ID: v2-artikelen-GET-OData
+     * @return array<int, \SpiderDead\SnelStartApi\Model\ArtikelQueryModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(?string $filter = null, ?int $skip = null, ?int $top = null, ?int $aantal = null, ?string $relatieId = null): \SpiderDead\SnelStartApi\Model\ArtikelQueryModelArray
+    public function all(?string $filter = null, ?int $skip = null, ?int $top = null, ?int $aantal = null, ?string $relatieId = null): array
     {
         $pathParams = [];
         $queryParams = [];
@@ -47,9 +48,10 @@ final class ArtikelenService extends AbstractService
 
     /**
      * Operation ID: v2-artikelen-prijsafspraken-GET-OData
+     * @return array<int, \SpiderDead\SnelStartApi\Model\ArtikelPrijsAfsprakenModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function allPrijsafspraken(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\ArtikelPrijsAfsprakenModelArray
+    public function allPrijsafspraken(?string $filter = null, ?int $skip = null, ?int $top = null): array
     {
         $pathParams = [];
         $queryParams = [];
@@ -113,9 +115,10 @@ final class ArtikelenService extends AbstractService
 
     /**
      * Operation ID: v2-artikelen-id-customFields-GET
+     * @return array<int, \SpiderDead\SnelStartApi\Model\CustomFieldDto>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function getCustomFields(string $id): \SpiderDead\SnelStartApi\Model\CustomFieldDtoArray
+    public function getCustomFields(string $id): array
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -126,9 +129,10 @@ final class ArtikelenService extends AbstractService
 
     /**
      * Operation ID: v2-artikelen-id-customFields-PUT
+     * @return array<int, \SpiderDead\SnelStartApi\Model\CustomFieldDto>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function updateCustomFields(string $id, ?\SpiderDead\SnelStartApi\Model\UpdatedCustomFieldModelArray $body = null): \SpiderDead\SnelStartApi\Model\CustomFieldDtoArray
+    public function updateCustomFields(string $id, mixed $body = null): array
     {
         $pathParams = [];
         $pathParams['id'] = $id;

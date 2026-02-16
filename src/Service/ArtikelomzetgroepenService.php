@@ -8,9 +8,10 @@ final class ArtikelomzetgroepenService extends AbstractService
 {
     /**
      * Operation ID: v2-artikelomzetgroepen-GET
+     * @return array<int, \SpiderDead\SnelStartApi\Model\ArtikelOmzetGroepModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(): \SpiderDead\SnelStartApi\Model\ArtikelOmzetGroepModelArray
+    public function all(): array
     {
         $pathParams = [];
         $queryParams = [];

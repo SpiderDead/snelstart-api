@@ -8,9 +8,10 @@ final class DagboekenService extends AbstractService
 {
     /**
      * Operation ID: v2-dagboeken-GET
+     * @return array<int, \SpiderDead\SnelStartApi\Model\DagboekModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(): \SpiderDead\SnelStartApi\Model\DagboekModelArray
+    public function all(): array
     {
         $pathParams = [];
         $queryParams = [];
