@@ -9,9 +9,9 @@ final class MemoriaalBoekingsRegelModel
 
     public ?float $debet = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\GrootboekIdentifierModel $grootboek = null;
+    public \SpiderDead\SnelStartApi\Model\GrootboekIdentifierModel $grootboek;
 
     public ?\SpiderDead\SnelStartApi\Model\KostenplaatsIdentifierModel $kostenplaats = null;
 
-    public ?string $omschrijving = null;
+    public string $omschrijving;
 }

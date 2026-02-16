@@ -9,7 +9,7 @@ final class VerkoopOrderModel
 
     public ?string $betalingskenmerk = null;
 
-    public ?\DateTimeImmutable $datum = null;
+    public \DateTimeImmutable $datum;
 
     /** @var array<int, \SpiderDead\SnelStartApi\Model\IngaveGegevenModel>|null */
     public ?array $extraHoofdVelden = null;
@@ -43,7 +43,7 @@ final class VerkoopOrderModel
     /** @var array<int, \SpiderDead\SnelStartApi\Model\VerkooporderRegelModel>|null */
     public ?array $regels = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $relatie = null;
+    public \SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $relatie;
 
     public ?float $totaalExclusiefBtw = null;
 

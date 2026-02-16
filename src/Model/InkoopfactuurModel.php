@@ -9,7 +9,7 @@ final class InkoopfactuurModel
 
     public ?\DateTimeImmutable $factuurDatum = null;
 
-    public ?string $factuurnummer = null;
+    public string $factuurnummer;
 
     public ?string $id = null;
 

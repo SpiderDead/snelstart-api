@@ -9,7 +9,7 @@ final class BtwBoekingregelModel
 
     public ?float $debet = null;
 
-    public ?string $tarief = null;
+    public string $tarief;
 
-    public ?string $type = null;
+    public string $type;
 }

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace SpiderDead\SnelStartApi\Model;
 final class InkoopboekingModel
 {
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\InkoopboekingRegelModel>|null */
-    public ?array $boekingsregels = null;
+    /** @var array<int, \SpiderDead\SnelStartApi\Model\InkoopboekingRegelModel> */
+    public array $boekingsregels;
 
     public ?string $boekstuk = null;
 
@@ -18,15 +18,15 @@ final class InkoopboekingModel
 
     public ?float $factuurbedrag = null;
 
-    public ?\DateTimeImmutable $factuurdatum = null;
+    public \DateTimeImmutable $factuurdatum;
 
-    public ?string $factuurnummer = null;
+    public string $factuurnummer;
 
     public ?bool $gewijzigdDoorAccountant = null;
 
     public ?string $id = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $leverancier = null;
+    public \SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $leverancier;
 
     public ?bool $markering = null;
 

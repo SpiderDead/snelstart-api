@@ -8,26 +8,6 @@ final class SchemaMap
 {
     /** @var array<string, class-string> */
     private const SCHEMAS = [
-        'ArtikelenIdDelete200ApplicationJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'ArtikelenIdDelete200TextJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'BankboekingenIdDelete200ApplicationJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'BankboekingenIdDelete200TextJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'DocumentenIdDelete200ApplicationJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'DocumentenIdDelete200TextJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'EchoInputGet200ApplicationJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'EchoInputGet200TextJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'EchoInputGet204ApplicationJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'EchoInputGet204TextJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'InkoopboekingenIdDelete200ApplicationJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'InkoopboekingenIdDelete200TextJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'KasboekingenIdDelete200ApplicationJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'KasboekingenIdDelete200TextJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'KostenplaatsenIdDelete200ApplicationJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'KostenplaatsenIdDelete200TextJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'OffertesIdDelete201ApplicationJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'OffertesIdDelete201TextJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'RelatiesIdDelete200ApplicationJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'RelatiesIdDelete200TextJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
         'SnelStart.B2B.Api.V2.Models.Actieprijzen.ActieprijzenModel' => \SpiderDead\SnelStartApi\Model\ActieprijzenModel::class,
         'SnelStart.B2B.Api.V2.Models.Actieprijzen.ArtikelPrijsModel' => \SpiderDead\SnelStartApi\Model\ArtikelPrijsModel::class,
         'SnelStart.B2B.Api.V2.Models.Actieprijzen.PrijsModel' => \SpiderDead\SnelStartApi\Model\PrijsModel::class,
@@ -126,12 +106,6 @@ final class SchemaMap
         'SnelStart.Business.Interfaces.CustomFields.CustomFieldDefinitionDto' => \SpiderDead\SnelStartApi\Model\CustomFieldDefinitionDto::class,
         'SnelStart.Business.Interfaces.CustomFields.CustomFieldDefinitionPropertyDto' => \SpiderDead\SnelStartApi\Model\CustomFieldDefinitionPropertyDto::class,
         'SnelStart.Business.Interfaces.CustomFields.CustomFieldDto' => \SpiderDead\SnelStartApi\Model\CustomFieldDto::class,
-        'VerkoopboekingenIdDelete200ApplicationJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'VerkoopboekingenIdDelete200TextJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'VerkoopordersIdDelete201ApplicationJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'VerkoopordersIdDelete201TextJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'VerkoopordersIdProcesStatusPut200ApplicationJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
-        'VerkoopordersIdProcesStatusPut200TextJsonResponse' => \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse::class,
     ];
 
     /** @return array<string, class-string> */

@@ -9,7 +9,7 @@ final class OfferteModel
 
     public ?string $betalingskenmerk = null;
 
-    public ?\DateTimeImmutable $datum = null;
+    public \DateTimeImmutable $datum;
 
     public ?\SpiderDead\SnelStartApi\Model\AdresModel $factuuradres = null;
 
@@ -40,7 +40,7 @@ final class OfferteModel
     /** @var array<int, \SpiderDead\SnelStartApi\Model\VerkooporderRegelModel>|null */
     public ?array $regels = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $relatie = null;
+    public \SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $relatie;
 
     public ?float $totaalExclusiefBtw = null;
 

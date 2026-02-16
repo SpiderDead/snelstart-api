@@ -9,7 +9,7 @@ final class VerkoopBoekingRegelModel
 
     public ?string $btwSoort = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\GrootboekIdentifierModel $grootboek = null;
+    public \SpiderDead\SnelStartApi\Model\GrootboekIdentifierModel $grootboek;
 
     public ?\SpiderDead\SnelStartApi\Model\KostenplaatsIdentifierModel $kostenplaats = null;
 

@@ -44,13 +44,13 @@ final class RelatiesService extends AbstractService
      * Operation ID: v2-relaties-id-DELETE
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function delete(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
+    public function delete(string $id): void
     {
         $pathParams = [];
         $pathParams['id'] = $id;
         $queryParams = [];
         $result = $this->call('v2-relaties-id-DELETE', $pathParams, $queryParams, null);
-        return $result;
+        return;
     }
 
     /**

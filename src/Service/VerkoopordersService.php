@@ -44,13 +44,13 @@ final class VerkoopordersService extends AbstractService
      * Operation ID: v2-verkooporders-id-DELETE
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function delete(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
+    public function delete(string $id): void
     {
         $pathParams = [];
         $pathParams['id'] = $id;
         $queryParams = [];
         $result = $this->call('v2-verkooporders-id-DELETE', $pathParams, $queryParams, null);
-        return $result;
+        return;
     }
 
     /**
@@ -83,12 +83,12 @@ final class VerkoopordersService extends AbstractService
      * Operation ID: v2-verkooporders-id-ProcesStatus-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function updateProcesStatus(string $id, ?\SpiderDead\SnelStartApi\Model\VerkooporderUpdateProcesStatusModel $body = null): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
+    public function updateProcesStatus(string $id, ?\SpiderDead\SnelStartApi\Model\VerkooporderUpdateProcesStatusModel $body = null): void
     {
         $pathParams = [];
         $pathParams['id'] = $id;
         $queryParams = [];
         $result = $this->call('v2-verkooporders-id-ProcesStatus-PUT', $pathParams, $queryParams, $body);
-        return $result;
+        return;
     }
 }

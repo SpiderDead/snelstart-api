@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace SpiderDead\SnelStartApi\Model;
 final class VerkoopBoekingVerantwoordingsRegelModel
 {
-    public ?float $bedrag = null;
+    public float $bedrag;
 
-    public ?\SpiderDead\SnelStartApi\Model\VerkoopboekingIdentifierModel $boekingId = null;
+    public \SpiderDead\SnelStartApi\Model\VerkoopboekingIdentifierModel $boekingId;
 
-    public ?string $omschrijving = null;
+    public string $omschrijving;
 }

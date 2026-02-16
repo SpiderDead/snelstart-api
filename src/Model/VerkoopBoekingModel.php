@@ -7,8 +7,8 @@ final class VerkoopBoekingModel
 {
     public ?int $betalingstermijn = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\VerkoopBoekingRegelModel>|null */
-    public ?array $boekingsregels = null;
+    /** @var array<int, \SpiderDead\SnelStartApi\Model\VerkoopBoekingRegelModel> */
+    public array $boekingsregels;
 
     public ?string $boekstuk = null;
 
@@ -26,13 +26,13 @@ final class VerkoopBoekingModel
 
     public ?\DateTimeImmutable $factuurdatum = null;
 
-    public ?string $factuurnummer = null;
+    public string $factuurnummer;
 
     public ?bool $gewijzigdDoorAccountant = null;
 
     public ?string $id = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $klant = null;
+    public \SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $klant;
 
     public ?bool $markering = null;
 

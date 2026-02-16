@@ -7,9 +7,9 @@ final class MemoriaalboekingModel
 {
     public ?string $boekstuk = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\DagboekIdentifierModel $dagboek = null;
+    public \SpiderDead\SnelStartApi\Model\DagboekIdentifierModel $dagboek;
 
-    public ?\DateTimeImmutable $datum = null;
+    public \DateTimeImmutable $datum;
 
     public ?bool $gewijzigdDoorAccountant = null;
 

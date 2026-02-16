@@ -5,18 +5,18 @@ declare(strict_types=1);
 namespace SpiderDead\SnelStartApi\Model;
 final class KasboekingModel
 {
-    public ?float $bedragOntvangen = null;
+    public float $bedragOntvangen;
 
-    public ?float $bedragUitgegeven = null;
+    public float $bedragUitgegeven;
 
     public ?string $boekstuk = null;
 
     /** @var array<int, \SpiderDead\SnelStartApi\Model\BtwBoekingregelModel>|null */
     public ?array $btwBoekingsregels = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\DagboekIdentifierModel $dagboek = null;
+    public \SpiderDead\SnelStartApi\Model\DagboekIdentifierModel $dagboek;
 
-    public ?\DateTimeImmutable $datum = null;
+    public \DateTimeImmutable $datum;
 
     public ?bool $gewijzigdDoorAccountant = null;
 

@@ -276,14 +276,21 @@ def build_schema_class_map(schemas: dict[str, dict], reachable: set[str]) -> dic
     used: set[str] = set()
     mapping: dict[str, str] = {}
     
-    # First pass: assign short names to canonical schemas (skip array wrappers)
+    # First pass: assign short names to canonical schemas (skip array wrappers and empty objects)
     for key in sorted(schemas.keys()):
         if key not in reachable:
             continue  # Skip unreachable schemas
         
-        # Skip array wrapper schemas - they will be handled inline as ModelClass[]
         schema = schemas[key]
+        
+        # Skip array wrapper schemas - they will be handled inline as ModelClass[]
         if schema.get("type") == "array":
+            continue
+        
+        # Skip empty object schemas (common for DELETE responses) - they return void
+        if (schema.get("type") == "object" and 
+            not schema.get("properties") and 
+            not schema.get("additionalProperties")):
             continue
         
         # If this is a duplicate, map it to the canonical class
@@ -304,9 +311,16 @@ def build_schema_class_map(schemas: dict[str, dict], reachable: set[str]) -> dic
         if key not in reachable:
             continue
         
-        # Skip array wrappers
         schema = schemas[key]
+        
+        # Skip array wrappers
         if schema.get("type") == "array":
+            continue
+        
+        # Skip empty objects
+        if (schema.get("type") == "object" and 
+            not schema.get("properties") and 
+            not schema.get("additionalProperties")):
             continue
         
         if key in duplicates:
@@ -359,9 +373,16 @@ def response_descriptor(schema: dict | None, schema_map: dict[str, str], schemas
 
     if "$ref" in schema:
         key = schema_key_from_ref(schema["$ref"])
-        # Check if the referenced schema is actually an array type
+        # Check if the referenced schema is actually an array type or empty object
         if key in schemas:
             ref_schema = schemas[key]
+            
+            # Empty object schemas (common for DELETE responses) should return void
+            if (ref_schema.get("type") == "object" and 
+                not ref_schema.get("properties") and 
+                not ref_schema.get("additionalProperties")):
+                return {"kind": "none", "type": "", "return": "void", "doc": "void"}
+            
             if ref_schema.get("type") == "array":
                 # This is an array schema - handle it as an array, not a wrapper class
                 items = ref_schema.get("items") or {}
@@ -552,6 +573,7 @@ enum {class_name}: {backing}
         )
 
     properties = schema.get("properties") or {}
+    required_props = set(schema.get("required") or [])
     needs_serialized_name = False
     prop_blocks: list[str] = []
     for prop_name in sorted(properties.keys()):
@@ -560,14 +582,33 @@ enum {class_name}: {backing}
         if prop_var != prop_name:
             needs_serialized_name = True
         native, item_native = resolve_native_type(prop_schema, schema_map)
-        hint = "mixed" if native == "mixed" else f"?{native}"
+        is_required = prop_name in required_props
+        
+        # Determine type hint and default value
+        if is_required:
+            # Required properties: non-nullable, no default
+            if native == "mixed":
+                # mixed can't be non-nullable, keep nullable
+                hint = "mixed"
+                default = " = null"
+            else:
+                hint = native
+                default = ""
+        else:
+            # Optional properties: nullable with default null
+            hint = "mixed" if native == "mixed" else f"?{native}"
+            default = " = null"
+        
         lines: list[str] = []
         if native == "array":
             item_doc = "mixed" if item_native in {None, "array"} else item_native
-            lines.append(f"    /** @var array<int, {item_doc}>|null */")
+            if is_required:
+                lines.append(f"    /** @var array<int, {item_doc}> */")
+            else:
+                lines.append(f"    /** @var array<int, {item_doc}>|null */")
         if prop_var != prop_name:
             lines.append(f"    #[SerializedName({php_str(prop_name)})]")
-        lines.append(f"    public {hint} ${prop_var} = null;")
+        lines.append(f"    public {hint} ${prop_var}{default};")
         prop_blocks.append("\n".join(lines))
 
     if not properties:

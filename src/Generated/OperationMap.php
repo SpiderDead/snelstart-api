@@ -31,8 +31,8 @@ final class OperationMap
         'v2-artikelen-id-DELETE' => [
             'method' => 'DELETE',
             'path' => '/artikelen/{id}',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelenIdDelete200ApplicationJsonResponse',
+            'response_kind' => 'none',
+            'response_type' => '',
         ],
         'v2-artikelen-id-GET' => [
             'method' => 'GET',
@@ -103,8 +103,8 @@ final class OperationMap
         'v2-bankboekingen-id-DELETE' => [
             'method' => 'DELETE',
             'path' => '/bankboekingen/{id}',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelenIdDelete200ApplicationJsonResponse',
+            'response_kind' => 'none',
+            'response_type' => '',
         ],
         'v2-bankboekingen-id-GET' => [
             'method' => 'GET',
@@ -175,8 +175,8 @@ final class OperationMap
         'v2-documenten-id-DELETE' => [
             'method' => 'DELETE',
             'path' => '/documenten/{id}',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelenIdDelete200ApplicationJsonResponse',
+            'response_kind' => 'none',
+            'response_type' => '',
         ],
         'v2-documenten-id-GET' => [
             'method' => 'GET',
@@ -193,8 +193,8 @@ final class OperationMap
         'v2-echo-input-GET' => [
             'method' => 'GET',
             'path' => '/echo/{input}',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelenIdDelete200ApplicationJsonResponse',
+            'response_kind' => 'none',
+            'response_type' => '',
         ],
         'v2-grootboeken-GET-OData' => [
             'method' => 'GET',
@@ -247,8 +247,8 @@ final class OperationMap
         'v2-inkoopboekingen-id-DELETE' => [
             'method' => 'DELETE',
             'path' => '/inkoopboekingen/{id}',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelenIdDelete200ApplicationJsonResponse',
+            'response_kind' => 'none',
+            'response_type' => '',
         ],
         'v2-inkoopboekingen-id-GET' => [
             'method' => 'GET',
@@ -289,8 +289,8 @@ final class OperationMap
         'v2-kasboekingen-id-DELETE' => [
             'method' => 'DELETE',
             'path' => '/kasboekingen/{id}',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelenIdDelete200ApplicationJsonResponse',
+            'response_kind' => 'none',
+            'response_type' => '',
         ],
         'v2-kasboekingen-id-GET' => [
             'method' => 'GET',
@@ -319,8 +319,8 @@ final class OperationMap
         'v2-kostenplaatsen-id-DELETE' => [
             'method' => 'DELETE',
             'path' => '/kostenplaatsen/{id}',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelenIdDelete200ApplicationJsonResponse',
+            'response_kind' => 'none',
+            'response_type' => '',
         ],
         'v2-kostenplaatsen-id-GET' => [
             'method' => 'GET',
@@ -385,8 +385,8 @@ final class OperationMap
         'v2-offertes-id-DELETE' => [
             'method' => 'DELETE',
             'path' => '/offertes/{id}',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelenIdDelete200ApplicationJsonResponse',
+            'response_kind' => 'none',
+            'response_type' => '',
         ],
         'v2-offertes-id-GET' => [
             'method' => 'GET',
@@ -433,8 +433,8 @@ final class OperationMap
         'v2-relaties-id-DELETE' => [
             'method' => 'DELETE',
             'path' => '/relaties/{id}',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelenIdDelete200ApplicationJsonResponse',
+            'response_kind' => 'none',
+            'response_type' => '',
         ],
         'v2-relaties-id-GET' => [
             'method' => 'GET',
@@ -505,8 +505,8 @@ final class OperationMap
         'v2-verkoopboekingen-id-DELETE' => [
             'method' => 'DELETE',
             'path' => '/verkoopboekingen/{id}',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelenIdDelete200ApplicationJsonResponse',
+            'response_kind' => 'none',
+            'response_type' => '',
         ],
         'v2-verkoopboekingen-id-GET' => [
             'method' => 'GET',
@@ -553,8 +553,8 @@ final class OperationMap
         'v2-verkooporders-id-DELETE' => [
             'method' => 'DELETE',
             'path' => '/verkooporders/{id}',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelenIdDelete200ApplicationJsonResponse',
+            'response_kind' => 'none',
+            'response_type' => '',
         ],
         'v2-verkooporders-id-GET' => [
             'method' => 'GET',
@@ -571,8 +571,8 @@ final class OperationMap
         'v2-verkooporders-id-ProcesStatus-PUT' => [
             'method' => 'PUT',
             'path' => '/verkooporders/{id}/ProcesStatus',
-            'response_kind' => 'class',
-            'response_type' => '\\SpiderDead\\SnelStartApi\\Model\\ArtikelenIdDelete200ApplicationJsonResponse',
+            'response_kind' => 'none',
+            'response_type' => '',
         ],
         'v2-verkoopordersjablonen-GET' => [
             'method' => 'GET',
