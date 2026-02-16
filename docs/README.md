@@ -19,24 +19,14 @@ This SDK provides a clean, intuitive interface to interact with the SnelStart ac
 use SpiderDead\SnelStartApi\SnelStartClient;
 use SpiderDead\SnelStartApi\Config\ClientConfig;
 use SpiderDead\SnelStartApi\Auth\AuthMode;
-use Nyholm\Psr7\Factory\Psr17Factory;
-use Symfony\Component\HttpClient\Psr18Client;
 
-// Create client
-$httpClient = new Psr18Client();
-$factory = new Psr17Factory();
-
+// Create client with defaults
 $config = new ClientConfig(
     apiKey: 'your-api-key-here',
-    authMode: AuthMode::Header  // or AuthMode::Query
+    authMode: AuthMode::Header
 );
 
-$client = new SnelStartClient(
-    $httpClient,
-    $factory,
-    $factory,
-    $config
-);
+$client = SnelStartClient::create($config);
 
 // Use the API
 $artikelen = $client->artikelen()->all();
@@ -192,18 +182,18 @@ $config = new ClientConfig(
 - [Service Reference](services/)
 - [Model Reference](models.md)
 
-## Requirements
-
-- PHP 8.1 or higher
-- PSR-7 HTTP message implementation
-- PSR-17 HTTP factory implementation
-- PSR-18 HTTP client implementation
-
 ## Installation
 
 ```bash
 composer require spiderdead/snelstart-api
 ```
+
+All dependencies (including HTTP client) are installed automatically.
+
+## Requirements
+
+- PHP 8.1 or higher
+- All dependencies installed automatically via Composer
 
 ## Support
 

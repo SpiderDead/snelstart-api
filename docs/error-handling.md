@@ -60,9 +60,9 @@ try {
     // Refresh API key
     $newKey = $this->refreshApiKey();
     
-    // Create new client
+    // Create new client with refreshed key
     $config = new ClientConfig(apiKey: $newKey);
-    $client = new SnelStartClient(..., $config);
+    $client = SnelStartClient::create($config);
 }
 ```
 

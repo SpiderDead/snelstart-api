@@ -20,26 +20,24 @@ Typed PHP 8.2+ SDK for the SnelStart B2B API v2.
 composer require spiderdead/snelstart-api
 ```
 
+This will automatically install all required dependencies including the HTTP client.
+
 ## Quick Start
 
 ```php
 <?php
 
-use Nyholm\Psr7\Factory\Psr17Factory;
 use SpiderDead\SnelStartApi\Auth\AuthMode;
 use SpiderDead\SnelStartApi\Config\ClientConfig;
 use SpiderDead\SnelStartApi\SnelStartClient;
-use Symfony\Component\HttpClient\Psr18Client;
 
-$httpClient = new Psr18Client();
-$factory = new Psr17Factory();
-
+// Simple setup with default HTTP client
 $config = new ClientConfig(
     apiKey: 'your-api-key',
-    authMode: AuthMode::HEADER,
+    authMode: AuthMode::Header
 );
 
-$client = new SnelStartClient($httpClient, $factory, $factory, $config);
+$client = SnelStartClient::create($config);
 
 // Example: Get company information
 $companyInfo = $client->companyInfo()->all();
@@ -49,6 +47,18 @@ $artikelen = $client->artikelen()->all();
 
 // Example: Get a specific customer
 $customer = $client->relaties()->get($customerId);
+```
+
+**Advanced:** For custom HTTP client, use the constructor:
+
+```php
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Symfony\Component\HttpClient\Psr18Client;
+
+$httpClient = new Psr18Client();
+$factory = new Psr17Factory();
+
+$client = new SnelStartClient($httpClient, $factory, $factory, $config);
 ```
 
 ## Documentation

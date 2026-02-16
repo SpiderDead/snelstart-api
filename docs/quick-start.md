@@ -8,21 +8,19 @@ Get started with the SnelStart API SDK in minutes.
 composer require spiderdead/snelstart-api
 ```
 
+This will automatically install all dependencies including:
+- `symfony/http-client` - HTTP client implementation
+- `nyholm/psr7` - PSR-7 message factory
+- `symfony/serializer` - Object serialization
+
 ## Requirements
 
 - PHP 8.1 or higher
-- A PSR-18 HTTP client (e.g., `symfony/http-client`)
-- A PSR-17 HTTP factory (e.g., `nyholm/psr7`)
-
-### Install Dependencies
-
-```bash
-composer require symfony/http-client nyholm/psr7
-```
+- All dependencies are installed automatically via Composer
 
 ## Basic Setup
 
-### 1. Create the Client
+### Simple Setup (Recommended)
 
 ```php
 <?php
@@ -32,6 +30,24 @@ require 'vendor/autoload.php';
 use SpiderDead\SnelStartApi\SnelStartClient;
 use SpiderDead\SnelStartApi\Config\ClientConfig;
 use SpiderDead\SnelStartApi\Auth\AuthMode;
+
+// Configure the SDK
+$config = new ClientConfig(
+    apiKey: 'your-snelstart-api-key',
+    authMode: AuthMode::Header
+);
+
+// Create the client with defaults
+$client = SnelStartClient::create($config);
+```
+
+That's it! The SDK will automatically use Symfony HTTP Client and Nyholm PSR-7 factory.
+
+### Advanced Setup (Custom HTTP Client)
+
+If you want to use your own HTTP client:
+
+```php
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Symfony\Component\HttpClient\Psr18Client;
 
@@ -39,14 +55,7 @@ use Symfony\Component\HttpClient\Psr18Client;
 $httpClient = new Psr18Client();
 $factory = new Psr17Factory();
 
-// Configure the SDK
-$config = new ClientConfig(
-    apiKey: 'your-snelstart-api-key',
-    baseUri: 'https://b2bapi.snelstart.nl/v2',  // Default, can be omitted
-    authMode: AuthMode::Header  // or AuthMode::Query
-);
-
-// Create the SnelStart client
+// Create the client with custom dependencies
 $client = new SnelStartClient(
     $httpClient,
     $factory,
