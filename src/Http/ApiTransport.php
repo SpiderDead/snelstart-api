@@ -14,9 +14,15 @@ use SpiderDead\SnelStartApi\Auth\AuthMode;
 use SpiderDead\SnelStartApi\Config\ClientConfig;
 use SpiderDead\SnelStartApi\Exception\ApiException;
 use SpiderDead\SnelStartApi\Exception\BadRequestException;
+use SpiderDead\SnelStartApi\Exception\ConflictException;
 use SpiderDead\SnelStartApi\Exception\ForbiddenException;
 use SpiderDead\SnelStartApi\Exception\NotFoundException;
+use SpiderDead\SnelStartApi\Exception\RateLimitedException;
+use SpiderDead\SnelStartApi\Exception\ServerErrorException;
+use SpiderDead\SnelStartApi\Exception\ServiceUnavailableException;
+use SpiderDead\SnelStartApi\Exception\UnauthorizedException;
 use SpiderDead\SnelStartApi\Exception\UnexpectedStatusException;
+use SpiderDead\SnelStartApi\Exception\UnprocessableEntityException;
 use SpiderDead\SnelStartApi\Generated\OperationMap;
 
 final class ApiTransport
@@ -45,7 +51,7 @@ final class ApiTransport
             ->withHeader('Accept', 'application/json')
             ->withHeader('User-Agent', $this->config->userAgent);
 
-        if ($this->config->authMode === AuthMode::HEADER) {
+        if ($this->config->authMode === AuthMode::Header) {
             $request = $request->withHeader('Ocp-Apim-Subscription-Key', $this->config->apiKey);
         }
 
@@ -81,7 +87,7 @@ final class ApiTransport
     private function buildUri(string $path, array $pathParams, array $queryParams): string
     {
         $resolvedPath = preg_replace_callback(
-            '/\{([^}]+)\}/',
+            '/\{([^}]+)}/',
             static function (array $matches) use ($pathParams): string {
                 $name = $matches[1];
                 if (!array_key_exists($name, $pathParams)) {
@@ -97,7 +103,7 @@ final class ApiTransport
             throw new RuntimeException('Failed to build request path.');
         }
 
-        if ($this->config->authMode === AuthMode::QUERY && !array_key_exists('subscription-key', $queryParams)) {
+        if ($this->config->authMode === AuthMode::Query && !array_key_exists('subscription-key', $queryParams)) {
             $queryParams['subscription-key'] = $this->config->apiKey;
         }
 
@@ -182,8 +188,14 @@ final class ApiTransport
     {
         return match ($statusCode) {
             400 => new BadRequestException($message, $statusCode, $payload, $headers, $operationId),
+            401 => new UnauthorizedException($message, $statusCode, $payload, $headers, $operationId),
             403 => new ForbiddenException($message, $statusCode, $payload, $headers, $operationId),
             404 => new NotFoundException($message, $statusCode, $payload, $headers, $operationId),
+            409 => new ConflictException($message, $statusCode, $payload, $headers, $operationId),
+            422 => new UnprocessableEntityException($message, $statusCode, $payload, $headers, $operationId),
+            429 => new RateLimitedException($message, $statusCode, $payload, $headers, $operationId),
+            500 => new ServerErrorException($message, $statusCode, $payload, $headers, $operationId),
+            503 => new ServiceUnavailableException($message, $statusCode, $payload, $headers, $operationId),
             default => new UnexpectedStatusException($message, $statusCode, $payload, $headers, $operationId),
         };
     }

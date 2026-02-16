@@ -4,12 +4,8 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Auth;
 
-final class AuthMode
+enum AuthMode: string
 {
-    public const HEADER = 'header';
-    public const QUERY = 'query';
-
-    private function __construct()
-    {
-    }
+    case Header = 'header';
+    case Query = 'query';
 }

@@ -24,7 +24,7 @@ final class ApiTransportAuthTest extends TestCase
             $http,
             $factory,
             $factory,
-            new ClientConfig('secret-key', authMode: AuthMode::HEADER),
+            new ClientConfig('secret-key', authMode: AuthMode::Header),
             new JsonCodec()
         );
 
@@ -43,7 +43,7 @@ final class ApiTransportAuthTest extends TestCase
             $http,
             $factory,
             $factory,
-            new ClientConfig('secret-key', authMode: AuthMode::QUERY),
+            new ClientConfig('secret-key', authMode: AuthMode::Query),
             new JsonCodec()
         );
 
