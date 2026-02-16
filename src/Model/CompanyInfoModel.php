@@ -3,6 +3,11 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\FactureerBuitenlandseBtwDateRangeModel;
+use SpiderDead\SnelStartApi\Model\GrootboekIdentifierModel;
+use SpiderDead\SnelStartApi\Model\KleineOndernemersRegelingModel;
+
 final class CompanyInfoModel
 {
     public ?int $aantalDecimalenArtikelaantallen = null;
@@ -45,11 +50,11 @@ final class CompanyInfoModel
 
     public ?float $btwPercentageAangifteKredietbeperking = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\GrootboekIdentifierModel $buitenlandseBtwGrootboek = null;
+    public ?GrootboekIdentifierModel $buitenlandseBtwGrootboek = null;
 
     public ?string $contactpersoon = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\GrootboekIdentifierModel $dagboekVoorraadverschillen = null;
+    public ?GrootboekIdentifierModel $dagboekVoorraadverschillen = null;
 
     public ?bool $deelleveringOrdersDefaultAan = null;
 
@@ -61,7 +66,7 @@ final class CompanyInfoModel
 
     public ?bool $factureerBuitenlandsBtw = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\FactureerBuitenlandseBtwDateRangeModel>|null */
+    /** @var array<int, FactureerBuitenlandseBtwDateRangeModel>|null */
     public ?array $factureerBuitenlandsBtwRanges = null;
 
     public ?bool $factuurAlsBijlageVerkoopboeking = null;
@@ -76,7 +81,7 @@ final class CompanyInfoModel
 
     public ?bool $inkoopprijsArtikelbestandExclusiefBtw = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\KleineOndernemersRegelingModel $kleineOndernemersregeling = null;
+    public ?KleineOndernemersRegelingModel $kleineOndernemersregeling = null;
 
     public ?bool $kolomGeleverdAutomatischVullen = null;
 
@@ -98,7 +103,7 @@ final class CompanyInfoModel
 
     public ?string $regelkortingVerkooporder = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\GrootboekIdentifierModel $rekeningTeOntvangenInkoopfacturen = null;
+    public ?GrootboekIdentifierModel $rekeningTeOntvangenInkoopfacturen = null;
 
     public ?string $tekstregelsOvernemenNaarBackorder = null;
 

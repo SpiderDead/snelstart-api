@@ -575,6 +575,7 @@ enum {class_name}: {backing}
     properties = schema.get("properties") or {}
     required_props = set(schema.get("required") or [])
     needs_serialized_name = False
+    used_types: set[str] = set()  # Track model types for imports
     prop_blocks: list[str] = []
     for prop_name in sorted(properties.keys()):
         prop_schema = properties[prop_name] or {}
@@ -583,6 +584,12 @@ enum {class_name}: {backing}
             needs_serialized_name = True
         native, item_native = resolve_native_type(prop_schema, schema_map)
         is_required = prop_name in required_props
+        
+        # Collect model types for imports
+        if native.startswith(f"\\{MODEL_NAMESPACE}\\"):
+            used_types.add(native.lstrip("\\"))
+        if item_native and item_native.startswith(f"\\{MODEL_NAMESPACE}\\"):
+            used_types.add(item_native.lstrip("\\"))
         
         # Determine type hint and default value
         if is_required:
@@ -602,13 +609,25 @@ enum {class_name}: {backing}
         lines: list[str] = []
         if native == "array":
             item_doc = "mixed" if item_native in {None, "array"} else item_native
+            # Use short name in PHPDoc if it's a model type
+            if item_doc.startswith(f"\\{MODEL_NAMESPACE}\\"):
+                item_doc = item_doc.split("\\")[-1]
+            
             if is_required:
                 lines.append(f"    /** @var array<int, {item_doc}> */")
             else:
                 lines.append(f"    /** @var array<int, {item_doc}>|null */")
         if prop_var != prop_name:
             lines.append(f"    #[SerializedName({php_str(prop_name)})]")
-        lines.append(f"    public {hint} ${prop_var}{default};")
+        
+        # Use short name in type hint if it's a model type
+        hint_short = hint
+        if hint_short.startswith(f"?\\{MODEL_NAMESPACE}\\"):
+            hint_short = "?" + hint_short.split("\\")[-1]
+        elif hint_short.startswith(f"\\{MODEL_NAMESPACE}\\"):
+            hint_short = hint_short.split("\\")[-1]
+        
+        lines.append(f"    public {hint_short} ${prop_var}{default};")
         prop_blocks.append("\n".join(lines))
 
     if not properties:
@@ -621,7 +640,18 @@ enum {class_name}: {backing}
         else:
             prop_blocks.append("    public mixed $value = null;")
 
-    use_block = "\nuse Symfony\\Component\\Serializer\\Attribute\\SerializedName;\n" if needs_serialized_name else ""
+    # Generate use statements
+    use_statements = []
+    if needs_serialized_name:
+        use_statements.append("use Symfony\\Component\\Serializer\\Attribute\\SerializedName;")
+    
+    for fqcn in sorted(used_types):
+        use_statements.append(f"use {fqcn};")
+    
+    use_block = ""
+    if use_statements:
+        use_block = "\n" + "\n".join(use_statements) + "\n"
+    
     props_text = "\n\n".join(prop_blocks)
 
     return normalize_newline(
@@ -629,7 +659,8 @@ enum {class_name}: {backing}
 
 declare(strict_types=1);
 
-namespace {MODEL_NAMESPACE};{use_block}
+namespace {MODEL_NAMESPACE};
+{use_block}
 final class {class_name}
 {{
 {props_text}
@@ -731,21 +762,83 @@ def generate_operation_data(spec: dict, schema_map: dict[str, str]) -> tuple[lis
 
 
 def generate_service_class(service_class: str, operations: list[dict]) -> str:
+    # Collect all model types used in this service
+    used_types: set[str] = set()
+    
+    for op in operations:
+        # Collect from parameters
+        for p in op["params"]:
+            hint = p["hint"]
+            if hint.startswith(f"?\\{MODEL_NAMESPACE}\\"):
+                used_types.add(hint[1:].lstrip("\\"))  # Remove leading ? and \
+            elif hint.startswith(f"\\{MODEL_NAMESPACE}\\"):
+                used_types.add(hint.lstrip("\\"))
+        
+        # Collect from body
+        if op["body"] is not None:
+            hint = op["body"]["hint"]
+            if hint.startswith(f"?\\{MODEL_NAMESPACE}\\"):
+                used_types.add(hint[1:].lstrip("\\"))
+            elif hint.startswith(f"\\{MODEL_NAMESPACE}\\"):
+                used_types.add(hint.lstrip("\\"))
+        
+        # Collect from return type
+        ret = op["response"]["return"]
+        if ret.startswith(f"\\{MODEL_NAMESPACE}\\"):
+            used_types.add(ret.lstrip("\\"))
+        
+        # Collect from PHPDoc @return
+        doc = op["response"]["doc"]
+        if doc.startswith("array<int, \\"):
+            # Extract class from array<int, \Namespace\Class>
+            import re
+            match = re.search(r'array<int, \\(.+?)>', doc)
+            if match:
+                used_types.add(match.group(1))
+    
+    # Create short name map and use statements
+    short_names: dict[str, str] = {}
+    for fqcn in sorted(used_types):
+        short_name = fqcn.split("\\")[-1]
+        short_names[fqcn] = short_name
+    
     blocks: list[str] = []
     for op in sorted(operations, key=lambda o: (o["path"], o["method"], o["operation_id"])):
         path_params = sorted([p for p in op["params"] if p["in"] == "path"], key=lambda p: (not p["required"], p["name"]))
         query_params = sorted([p for p in op["params"] if p["in"] == "query"], key=lambda p: (not p["required"], p["name"]))
-        sig_parts = [f"{p['hint']} ${p['var']}{p['default']}" for p in path_params + query_params]
+        
+        # Replace FQCNs with short names in parameters
+        sig_parts = []
+        for p in path_params + query_params:
+            hint = p["hint"]
+            for fqcn, short in short_names.items():
+                hint = hint.replace(f"\\{fqcn}", short)
+            sig_parts.append(f"{hint} ${p['var']}{p['default']}")
+        
         if op["body"] is not None:
-            sig_parts.append(f"{op['body']['hint']} $body{op['body']['default']}")
+            hint = op["body"]["hint"]
+            for fqcn, short in short_names.items():
+                hint = hint.replace(f"\\{fqcn}", short)
+            sig_parts.append(f"{hint} $body{op['body']['default']}")
+        
         signature = ", ".join(sig_parts)
 
+        # Replace FQCNs in PHPDoc
+        doc_return = op["response"]["doc"]
+        for fqcn, short in short_names.items():
+            doc_return = doc_return.replace(f"\\{fqcn}", short)
+        
         doc = ["    /**", f"     * Operation ID: {op['operation_id']}", "     * @throws \\SpiderDead\\SnelStartApi\\Exception\\ApiException"]
         if op["response"]["return"] == "array" and op["response"]["doc"] != "array":
-            doc.insert(2, f"     * @return {op['response']['doc']}")
+            doc.insert(2, f"     * @return {doc_return}")
         doc.append("     */")
 
-        return_decl = "" if op["response"]["return"] == "mixed" else f": {op['response']['return']}"
+        # Replace FQCNs in return type
+        return_type = op["response"]["return"]
+        for fqcn, short in short_names.items():
+            return_type = return_type.replace(f"\\{fqcn}", short)
+        
+        return_decl = "" if op["response"]["return"] == "mixed" else f": {return_type}"
         lines = [*doc, f"    public function {op['method_name']}({signature}){return_decl}", "    {", "        $pathParams = [];"]
         for p in path_params:
             if p["required"]:
@@ -771,13 +864,22 @@ def generate_service_class(service_class: str, operations: list[dict]) -> str:
         lines.append("    }")
         blocks.append("\n".join(lines))
 
+    # Generate use statements
+    use_statements = []
+    for fqcn in sorted(used_types):
+        use_statements.append(f"use {fqcn};")
+    
+    use_block = "\n".join(use_statements)
+    if use_block:
+        use_block = "\n" + use_block + "\n"
+    
     return normalize_newline(
         f"""<?php
 
 declare(strict_types=1);
 
 namespace {SERVICE_NAMESPACE};
-
+{use_block}
 final class {service_class} extends AbstractService
 {{
 {"\n\n".join(blocks)}

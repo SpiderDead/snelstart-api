@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\CompanyInfoModel;
+
 final class CompanyInfoService extends AbstractService
 {
     /**
      * Operation ID: v2-companyInfo-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function all(): \SpiderDead\SnelStartApi\Model\CompanyInfoModel
+    public function all(): CompanyInfoModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -22,7 +24,7 @@ final class CompanyInfoService extends AbstractService
      * Operation ID: v2-companyInfo-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function update(?\SpiderDead\SnelStartApi\Model\CompanyInfoModel $body = null): \SpiderDead\SnelStartApi\Model\CompanyInfoModel
+    public function update(?CompanyInfoModel $body = null): CompanyInfoModel
     {
         $pathParams = [];
         $queryParams = [];

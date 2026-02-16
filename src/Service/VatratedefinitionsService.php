@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\VatRateDefinitionModel;
+
 final class VatratedefinitionsService extends AbstractService
 {
     /**
      * Operation ID: v2-vatratedefinitions-GET-OData
-     * @return array<int, \SpiderDead\SnelStartApi\Model\VatRateDefinitionModel>
+     * @return array<int, VatRateDefinitionModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array

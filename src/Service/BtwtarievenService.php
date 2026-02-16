@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\BtwTariefModel;
+
 final class BtwtarievenService extends AbstractService
 {
     /**
      * Operation ID: v2-btwtarieven-GET
-     * @return array<int, \SpiderDead\SnelStartApi\Model\BtwTariefModel>
+     * @return array<int, BtwTariefModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(): array

@@ -3,25 +3,33 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\AdresModel;
+use SpiderDead\SnelStartApi\Model\IncassoMachtigingIdentifierModel;
+use SpiderDead\SnelStartApi\Model\KostenplaatsIdentifierModel;
+use SpiderDead\SnelStartApi\Model\RelatieIdentifierModel;
+use SpiderDead\SnelStartApi\Model\VerkoopfactuurIdentifierModel;
+use SpiderDead\SnelStartApi\Model\VerkooporderRegelModel;
+
 final class OfferteModel
 {
-    public ?\SpiderDead\SnelStartApi\Model\AdresModel $afleveradres = null;
+    public ?AdresModel $afleveradres = null;
 
     public ?string $betalingskenmerk = null;
 
     public \DateTimeImmutable $datum;
 
-    public ?\SpiderDead\SnelStartApi\Model\AdresModel $factuuradres = null;
+    public ?AdresModel $factuuradres = null;
 
     public ?float $factuurkorting = null;
 
     public ?string $id = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\IncassoMachtigingIdentifierModel $incassomachtiging = null;
+    public ?IncassoMachtigingIdentifierModel $incassomachtiging = null;
 
     public ?bool $isOfferte = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\KostenplaatsIdentifierModel $kostenplaats = null;
+    public ?KostenplaatsIdentifierModel $kostenplaats = null;
 
     public ?int $krediettermijn = null;
 
@@ -37,10 +45,10 @@ final class OfferteModel
 
     public ?string $procesStatus = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\VerkooporderRegelModel>|null */
+    /** @var array<int, VerkooporderRegelModel>|null */
     public ?array $regels = null;
 
-    public \SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $relatie;
+    public RelatieIdentifierModel $relatie;
 
     public ?float $totaalExclusiefBtw = null;
 
@@ -48,7 +56,7 @@ final class OfferteModel
 
     public ?string $uri = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\VerkoopfactuurIdentifierModel $verkoopfactuur = null;
+    public ?VerkoopfactuurIdentifierModel $verkoopfactuur = null;
 
     public ?string $verkooporderBtwIngaveModel = null;
 }

@@ -3,17 +3,23 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\BtwBoekingModel;
+use SpiderDead\SnelStartApi\Model\DocumentModel;
+use SpiderDead\SnelStartApi\Model\InkoopboekingRegelModel;
+use SpiderDead\SnelStartApi\Model\RelatieIdentifierModel;
+
 final class InkoopboekingModel
 {
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\InkoopboekingRegelModel> */
+    /** @var array<int, InkoopboekingRegelModel> */
     public array $boekingsregels;
 
     public ?string $boekstuk = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\BtwBoekingModel>|null */
+    /** @var array<int, BtwBoekingModel>|null */
     public ?array $btw = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\DocumentModel>|null */
+    /** @var array<int, DocumentModel>|null */
     public ?array $documents = null;
 
     public ?float $factuurbedrag = null;
@@ -26,7 +32,7 @@ final class InkoopboekingModel
 
     public ?string $id = null;
 
-    public \SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $leverancier;
+    public RelatieIdentifierModel $leverancier;
 
     public ?bool $markering = null;
 

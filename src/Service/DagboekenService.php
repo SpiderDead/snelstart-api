@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\DagboekModel;
+
 final class DagboekenService extends AbstractService
 {
     /**
      * Operation ID: v2-dagboeken-GET
-     * @return array<int, \SpiderDead\SnelStartApi\Model\DagboekModel>
+     * @return array<int, DagboekModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(): array

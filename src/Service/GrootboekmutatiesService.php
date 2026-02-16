@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\GrootboekMutatieModel;
+
 final class GrootboekmutatiesService extends AbstractService
 {
     /**
      * Operation ID: v2-grootboekmutaties-GET-OData
-     * @return array<int, \SpiderDead\SnelStartApi\Model\GrootboekMutatieModel>
+     * @return array<int, GrootboekMutatieModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
@@ -32,7 +34,7 @@ final class GrootboekmutatiesService extends AbstractService
      * Operation ID: v2-grootboekmutaties-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function get(string $id): \SpiderDead\SnelStartApi\Model\GrootboekMutatieModel
+    public function get(string $id): GrootboekMutatieModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

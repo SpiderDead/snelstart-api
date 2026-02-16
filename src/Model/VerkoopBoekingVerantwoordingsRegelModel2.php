@@ -3,9 +3,12 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\VerkoopboekingIdentifierModel;
+
 final class VerkoopBoekingVerantwoordingsRegelModel2
 {
-    public ?\SpiderDead\SnelStartApi\Model\VerkoopboekingIdentifierModel $boekingId = null;
+    public ?VerkoopboekingIdentifierModel $boekingId = null;
 
     public ?float $credit = null;
 

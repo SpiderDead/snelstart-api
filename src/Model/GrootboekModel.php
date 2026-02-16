@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\RgsModel;
+
 final class GrootboekModel
 {
     /** @var array<int, string>|null */
@@ -26,7 +29,7 @@ final class GrootboekModel
 
     public ?string $rekeningCode = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\RgsModel>|null */
+    /** @var array<int, RgsModel>|null */
     public ?array $rgsCode = null;
 
     public ?string $uri = null;

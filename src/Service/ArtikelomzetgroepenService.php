@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\ArtikelOmzetGroepModel;
+
 final class ArtikelomzetgroepenService extends AbstractService
 {
     /**
      * Operation ID: v2-artikelomzetgroepen-GET
-     * @return array<int, \SpiderDead\SnelStartApi\Model\ArtikelOmzetGroepModel>
+     * @return array<int, ArtikelOmzetGroepModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(): array
@@ -23,7 +25,7 @@ final class ArtikelomzetgroepenService extends AbstractService
      * Operation ID: v2-artikelomzetgroepen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function get(string $id): \SpiderDead\SnelStartApi\Model\ArtikelOmzetGroepModel
+    public function get(string $id): ArtikelOmzetGroepModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

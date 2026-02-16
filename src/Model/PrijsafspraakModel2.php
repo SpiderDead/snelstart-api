@@ -3,11 +3,15 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\ArtikelIdentifierModel;
+use SpiderDead\SnelStartApi\Model\RelatieIdentifierModel;
+
 final class PrijsafspraakModel2
 {
     public ?float $aantal = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\ArtikelIdentifierModel $artikel = null;
+    public ?ArtikelIdentifierModel $artikel = null;
 
     public ?float $basisprijs = null;
 
@@ -21,7 +25,7 @@ final class PrijsafspraakModel2
 
     public ?string $prijsBepalingSoort = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $relatie = null;
+    public ?RelatieIdentifierModel $relatie = null;
 
     public ?float $verkoopprijs = null;
 }

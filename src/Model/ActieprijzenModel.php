@@ -3,9 +3,12 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\ArtikelPrijsModel;
+
 final class ActieprijzenModel
 {
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\ArtikelPrijsModel>|null */
+    /** @var array<int, ArtikelPrijsModel>|null */
     public ?array $artikelPrijzen = null;
 
     public ?\DateTimeImmutable $einddatum = null;

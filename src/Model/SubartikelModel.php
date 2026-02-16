@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
 final class SubartikelModel
 {
     public ?float $aantal = null;

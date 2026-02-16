@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
 use Symfony\Component\Serializer\Attribute\SerializedName;
 
 final class VerkoopBoekingBijlageReferenceModel

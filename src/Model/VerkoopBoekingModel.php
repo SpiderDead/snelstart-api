@@ -3,24 +3,32 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\DocumentModel;
+use SpiderDead\SnelStartApi\Model\IncassoMachtigingIdentifierModel;
+use SpiderDead\SnelStartApi\Model\RelatieIdentifierModel;
+use SpiderDead\SnelStartApi\Model\VerkoopBoekingBtwRegelModel;
+use SpiderDead\SnelStartApi\Model\VerkoopBoekingEenmaligeIncassoMachtigingModel;
+use SpiderDead\SnelStartApi\Model\VerkoopBoekingRegelModel;
+
 final class VerkoopBoekingModel
 {
     public ?int $betalingstermijn = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\VerkoopBoekingRegelModel> */
+    /** @var array<int, VerkoopBoekingRegelModel> */
     public array $boekingsregels;
 
     public ?string $boekstuk = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\VerkoopBoekingBtwRegelModel>|null */
+    /** @var array<int, VerkoopBoekingBtwRegelModel>|null */
     public ?array $btw = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\DocumentModel>|null */
+    /** @var array<int, DocumentModel>|null */
     public ?array $documents = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\IncassoMachtigingIdentifierModel $doorlopendeIncassoMachtiging = null;
+    public ?IncassoMachtigingIdentifierModel $doorlopendeIncassoMachtiging = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\VerkoopBoekingEenmaligeIncassoMachtigingModel $eenmaligeIncassoMachtiging = null;
+    public ?VerkoopBoekingEenmaligeIncassoMachtigingModel $eenmaligeIncassoMachtiging = null;
 
     public ?float $factuurbedrag = null;
 
@@ -32,7 +40,7 @@ final class VerkoopBoekingModel
 
     public ?string $id = null;
 
-    public \SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $klant;
+    public RelatieIdentifierModel $klant;
 
     public ?bool $markering = null;
 

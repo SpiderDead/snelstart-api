@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
 final class PrijsModel
 {
     public ?float $basisprijs = null;

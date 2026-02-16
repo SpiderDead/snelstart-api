@@ -3,6 +3,11 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\RelatieIdentifierModel;
+use SpiderDead\SnelStartApi\Model\VerkoopOrderIdentifierModel;
+use SpiderDead\SnelStartApi\Model\VerkoopboekingIdentifierModel;
+
 final class VerkoopfactuurModel
 {
     public ?float $factuurBedrag = null;
@@ -17,13 +22,13 @@ final class VerkoopfactuurModel
 
     public ?float $openstaandSaldo = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $relatie = null;
+    public ?RelatieIdentifierModel $relatie = null;
 
     public ?string $uri = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\VerkoopboekingIdentifierModel $verkoopBoeking = null;
+    public ?VerkoopboekingIdentifierModel $verkoopBoeking = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\VerkoopOrderIdentifierModel>|null */
+    /** @var array<int, VerkoopOrderIdentifierModel>|null */
     public ?array $verkoopOrders = null;
 
     public ?\DateTimeImmutable $vervalDatum = null;

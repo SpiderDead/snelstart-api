@@ -3,6 +3,10 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\BoekjaarModel;
+use SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel;
+
 final class BtwAangifteModel
 {
     public ?\DateTimeImmutable $aangiftePeriodeBeginDatum = null;
@@ -11,7 +15,7 @@ final class BtwAangifteModel
 
     public ?string $betalingskenmerk = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BoekjaarModel $boekjaar = null;
+    public ?BoekjaarModel $boekjaar = null;
 
     public ?string $btwAangiftePeriode = null;
 
@@ -37,41 +41,41 @@ final class BtwAangifteModel
 
     public ?bool $isSuppletie = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek1A = null;
+    public ?BtwAangifteRubriekModel $rubriek1A = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek1B = null;
+    public ?BtwAangifteRubriekModel $rubriek1B = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek1C = null;
+    public ?BtwAangifteRubriekModel $rubriek1C = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek1D = null;
+    public ?BtwAangifteRubriekModel $rubriek1D = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek1E = null;
+    public ?BtwAangifteRubriekModel $rubriek1E = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek2A = null;
+    public ?BtwAangifteRubriekModel $rubriek2A = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek3A = null;
+    public ?BtwAangifteRubriekModel $rubriek3A = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek3B = null;
+    public ?BtwAangifteRubriekModel $rubriek3B = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek3C = null;
+    public ?BtwAangifteRubriekModel $rubriek3C = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek4A = null;
+    public ?BtwAangifteRubriekModel $rubriek4A = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek4B = null;
+    public ?BtwAangifteRubriekModel $rubriek4B = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek5A = null;
+    public ?BtwAangifteRubriekModel $rubriek5A = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek5B = null;
+    public ?BtwAangifteRubriekModel $rubriek5B = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek5C = null;
+    public ?BtwAangifteRubriekModel $rubriek5C = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek5D = null;
+    public ?BtwAangifteRubriekModel $rubriek5D = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek5E = null;
+    public ?BtwAangifteRubriekModel $rubriek5E = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek5F = null;
+    public ?BtwAangifteRubriekModel $rubriek5F = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\BtwAangifteRubriekModel $rubriek5G = null;
+    public ?BtwAangifteRubriekModel $rubriek5G = null;
 
     public ?string $uri = null;
 }

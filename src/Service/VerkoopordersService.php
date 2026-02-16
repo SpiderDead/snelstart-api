@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\VerkoopOrderModel;
+use SpiderDead\SnelStartApi\Model\VerkooporderUpdateProcesStatusModel;
+
 final class VerkoopordersService extends AbstractService
 {
     /**
      * Operation ID: v2-verkooporders-GET-OData
-     * @return array<int, \SpiderDead\SnelStartApi\Model\VerkoopOrderModel>
+     * @return array<int, VerkoopOrderModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
@@ -32,7 +35,7 @@ final class VerkoopordersService extends AbstractService
      * Operation ID: v2-verkooporders-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function create(?\SpiderDead\SnelStartApi\Model\VerkoopOrderModel $body = null): \SpiderDead\SnelStartApi\Model\VerkoopOrderModel
+    public function create(?VerkoopOrderModel $body = null): VerkoopOrderModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -57,7 +60,7 @@ final class VerkoopordersService extends AbstractService
      * Operation ID: v2-verkooporders-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function get(string $id): \SpiderDead\SnelStartApi\Model\VerkoopOrderModel
+    public function get(string $id): VerkoopOrderModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -70,7 +73,7 @@ final class VerkoopordersService extends AbstractService
      * Operation ID: v2-verkooporders-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function update(string $id, ?\SpiderDead\SnelStartApi\Model\VerkoopOrderModel $body = null): \SpiderDead\SnelStartApi\Model\VerkoopOrderModel
+    public function update(string $id, ?VerkoopOrderModel $body = null): VerkoopOrderModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -83,7 +86,7 @@ final class VerkoopordersService extends AbstractService
      * Operation ID: v2-verkooporders-id-ProcesStatus-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function updateProcesStatus(string $id, ?\SpiderDead\SnelStartApi\Model\VerkooporderUpdateProcesStatusModel $body = null): void
+    public function updateProcesStatus(string $id, ?VerkooporderUpdateProcesStatusModel $body = null): void
     {
         $pathParams = [];
         $pathParams['id'] = $id;

@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\VerkoopfactuurModel;
+
 final class VerkoopfacturenService extends AbstractService
 {
     /**
      * Operation ID: v2-verkoopfacturen-GET-OData
-     * @return array<int, \SpiderDead\SnelStartApi\Model\VerkoopfactuurModel>
+     * @return array<int, VerkoopfactuurModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
@@ -32,7 +34,7 @@ final class VerkoopfacturenService extends AbstractService
      * Operation ID: v2-verkoopfacturen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function get(string $id): \SpiderDead\SnelStartApi\Model\VerkoopfactuurModel
+    public function get(string $id): VerkoopfactuurModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

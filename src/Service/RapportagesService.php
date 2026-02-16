@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\KolommenbalansRegelModel;
+use SpiderDead\SnelStartApi\Model\PeriodebalansRegelModel;
+
 final class RapportagesService extends AbstractService
 {
     /**
      * Operation ID: v2-rapportages-kolommenbalans-GET
-     * @return array<int, \SpiderDead\SnelStartApi\Model\KolommenbalansRegelModel>
+     * @return array<int, KolommenbalansRegelModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function allKolommenbalans(\DateTimeImmutable $end, \DateTimeImmutable $start): array
@@ -23,7 +26,7 @@ final class RapportagesService extends AbstractService
 
     /**
      * Operation ID: v2-rapportages-periodebalans-GET
-     * @return array<int, \SpiderDead\SnelStartApi\Model\PeriodebalansRegelModel>
+     * @return array<int, PeriodebalansRegelModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function allPeriodebalans(\DateTimeImmutable $end, \DateTimeImmutable $start): array

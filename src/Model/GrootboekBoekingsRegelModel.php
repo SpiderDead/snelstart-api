@@ -3,6 +3,10 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\GrootboekIdentifierModel;
+use SpiderDead\SnelStartApi\Model\KostenplaatsIdentifierModel;
+
 final class GrootboekBoekingsRegelModel
 {
     public ?string $btwSoort = null;
@@ -11,9 +15,9 @@ final class GrootboekBoekingsRegelModel
 
     public ?float $debet = null;
 
-    public \SpiderDead\SnelStartApi\Model\GrootboekIdentifierModel $grootboek;
+    public GrootboekIdentifierModel $grootboek;
 
-    public ?\SpiderDead\SnelStartApi\Model\KostenplaatsIdentifierModel $kostenplaats = null;
+    public ?KostenplaatsIdentifierModel $kostenplaats = null;
 
     public string $omschrijving;
 }

@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\AdministrationAccessModel;
+
 final class AuthorizationService extends AbstractService
 {
     /**
      * Operation ID: v2-authorization-HasUserAccessToAdministration-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function allHasUserAccessToAdministration(string $userIdentifier): \SpiderDead\SnelStartApi\Model\AdministrationAccessModel
+    public function allHasUserAccessToAdministration(string $userIdentifier): AdministrationAccessModel
     {
         $pathParams = [];
         $queryParams = [];

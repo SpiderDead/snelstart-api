@@ -3,15 +3,20 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\ArtikelOmzetGroepIdentifierModel;
+use SpiderDead\SnelStartApi\Model\ExtraVeldArtikelModel;
+use SpiderDead\SnelStartApi\Model\RelatieIdentifierModel;
+
 final class ArtikelModel
 {
-    public ?\SpiderDead\SnelStartApi\Model\ArtikelOmzetGroepIdentifierModel $artikelOmzetgroep = null;
+    public ?ArtikelOmzetGroepIdentifierModel $artikelOmzetgroep = null;
 
     public ?string $artikelcode = null;
 
     public ?string $eenheid = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\ExtraVeldArtikelModel>|null */
+    /** @var array<int, ExtraVeldArtikelModel>|null */
     public ?array $extraVelden = null;
 
     public ?string $id = null;
@@ -24,7 +29,7 @@ final class ArtikelModel
 
     public ?string $omschrijving = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $relatie = null;
+    public ?RelatieIdentifierModel $relatie = null;
 
     public ?float $technischeVoorraad = null;
 

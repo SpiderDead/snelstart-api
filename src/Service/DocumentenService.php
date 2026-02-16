@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\DocumentContentModel;
+use SpiderDead\SnelStartApi\Model\DocumentIdentifierModel;
+use SpiderDead\SnelStartApi\Model\VerkoopBoekingBijlageReferenceModel;
+
 final class DocumentenService extends AbstractService
 {
     /**
      * Operation ID: v2-documenten-documenttype-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function create(string $documenttype, ?\SpiderDead\SnelStartApi\Model\DocumentContentModel $body = null): \SpiderDead\SnelStartApi\Model\DocumentIdentifierModel
+    public function create(string $documenttype, ?DocumentContentModel $body = null): DocumentIdentifierModel
     {
         $pathParams = [];
         $pathParams['documenttype'] = $documenttype;
@@ -21,7 +25,7 @@ final class DocumentenService extends AbstractService
 
     /**
      * Operation ID: v2-documenten-documenttype-pid-GET
-     * @return array<int, \SpiderDead\SnelStartApi\Model\VerkoopBoekingBijlageReferenceModel>
+     * @return array<int, VerkoopBoekingBijlageReferenceModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(string $documenttype, string $pid): array
@@ -51,7 +55,7 @@ final class DocumentenService extends AbstractService
      * Operation ID: v2-documenten-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function get(string $id): \SpiderDead\SnelStartApi\Model\DocumentContentModel
+    public function get(string $id): DocumentContentModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -64,7 +68,7 @@ final class DocumentenService extends AbstractService
      * Operation ID: v2-documenten-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function update(string $id, ?\SpiderDead\SnelStartApi\Model\DocumentContentModel $body = null): \SpiderDead\SnelStartApi\Model\DocumentIdentifierModel
+    public function update(string $id, ?DocumentContentModel $body = null): DocumentIdentifierModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

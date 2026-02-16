@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
 final class VatRateDefinitionModel
 {
     public ?string $name = null;

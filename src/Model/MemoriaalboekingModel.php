@@ -3,11 +3,17 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\DagboekIdentifierModel;
+use SpiderDead\SnelStartApi\Model\InkoopBoekingVerantwoordingsRegelModel;
+use SpiderDead\SnelStartApi\Model\MemoriaalBoekingsRegelModel;
+use SpiderDead\SnelStartApi\Model\VerkoopBoekingVerantwoordingsRegelModel;
+
 final class MemoriaalboekingModel
 {
     public ?string $boekstuk = null;
 
-    public \SpiderDead\SnelStartApi\Model\DagboekIdentifierModel $dagboek;
+    public DagboekIdentifierModel $dagboek;
 
     public \DateTimeImmutable $datum;
 
@@ -15,12 +21,12 @@ final class MemoriaalboekingModel
 
     public ?string $id = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\InkoopBoekingVerantwoordingsRegelModel>|null */
+    /** @var array<int, InkoopBoekingVerantwoordingsRegelModel>|null */
     public ?array $inkoopboekingBoekingsRegels = null;
 
     public ?bool $markering = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\MemoriaalBoekingsRegelModel>|null */
+    /** @var array<int, MemoriaalBoekingsRegelModel>|null */
     public ?array $memoriaalBoekingsRegels = null;
 
     public ?\DateTimeImmutable $modifiedOn = null;
@@ -29,6 +35,6 @@ final class MemoriaalboekingModel
 
     public ?string $uri = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\VerkoopBoekingVerantwoordingsRegelModel>|null */
+    /** @var array<int, VerkoopBoekingVerantwoordingsRegelModel>|null */
     public ?array $verkoopboekingBoekingsRegels = null;
 }

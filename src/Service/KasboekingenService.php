@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\KasboekingModel;
+
 final class KasboekingenService extends AbstractService
 {
     /**
      * Operation ID: v2-kasboekingen-GET-OData
-     * @return array<int, \SpiderDead\SnelStartApi\Model\KasboekingModel>
+     * @return array<int, KasboekingModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
@@ -32,7 +34,7 @@ final class KasboekingenService extends AbstractService
      * Operation ID: v2-kasboekingen-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function create(?\SpiderDead\SnelStartApi\Model\KasboekingModel $body = null): \SpiderDead\SnelStartApi\Model\KasboekingModel
+    public function create(?KasboekingModel $body = null): KasboekingModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -57,7 +59,7 @@ final class KasboekingenService extends AbstractService
      * Operation ID: v2-kasboekingen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function get(string $id): \SpiderDead\SnelStartApi\Model\KasboekingModel
+    public function get(string $id): KasboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -70,7 +72,7 @@ final class KasboekingenService extends AbstractService
      * Operation ID: v2-kasboekingen-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function update(string $id, ?\SpiderDead\SnelStartApi\Model\KasboekingModel $body = null): \SpiderDead\SnelStartApi\Model\KasboekingModel
+    public function update(string $id, ?KasboekingModel $body = null): KasboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

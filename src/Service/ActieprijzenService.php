@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\ActieprijzenModel;
+
 final class ActieprijzenService extends AbstractService
 {
     /**
      * Operation ID: v2-actieprijzen-GET-OData
-     * @return array<int, \SpiderDead\SnelStartApi\Model\ActieprijzenModel>
+     * @return array<int, ActieprijzenModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array

@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\VatRatesModel;
+
 final class VatratesService extends AbstractService
 {
     /**
      * Operation ID: v2-vatrates-GET-OData
-     * @return array<int, \SpiderDead\SnelStartApi\Model\VatRatesModel>
+     * @return array<int, VatRatesModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
@@ -32,7 +34,7 @@ final class VatratesService extends AbstractService
      * Operation ID: v2-vatrates-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function get(string $id): \SpiderDead\SnelStartApi\Model\VatRatesModel
+    public function get(string $id): VatRatesModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

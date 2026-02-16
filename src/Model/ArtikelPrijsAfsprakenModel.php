@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\KlantAfsprakenModel;
+
 final class ArtikelPrijsAfsprakenModel
 {
     public ?string $artikelCode = null;
@@ -11,6 +14,6 @@ final class ArtikelPrijsAfsprakenModel
 
     public ?float $basisprijs = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\KlantAfsprakenModel>|null */
+    /** @var array<int, KlantAfsprakenModel>|null */
     public ?array $klantAfspraken = null;
 }

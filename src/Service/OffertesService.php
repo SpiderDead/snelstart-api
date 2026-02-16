@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\OfferteModel;
+
 final class OffertesService extends AbstractService
 {
     /**
      * Operation ID: v2-offertes-GET-OData
-     * @return array<int, \SpiderDead\SnelStartApi\Model\OfferteModel>
+     * @return array<int, OfferteModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
@@ -32,7 +34,7 @@ final class OffertesService extends AbstractService
      * Operation ID: v2-offertes-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function create(?\SpiderDead\SnelStartApi\Model\OfferteModel $body = null): \SpiderDead\SnelStartApi\Model\OfferteModel
+    public function create(?OfferteModel $body = null): OfferteModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -57,7 +59,7 @@ final class OffertesService extends AbstractService
      * Operation ID: v2-offertes-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function get(string $id): \SpiderDead\SnelStartApi\Model\OfferteModel
+    public function get(string $id): OfferteModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -70,7 +72,7 @@ final class OffertesService extends AbstractService
      * Operation ID: v2-offertes-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function update(string $id, ?\SpiderDead\SnelStartApi\Model\OfferteModel $body = null): \SpiderDead\SnelStartApi\Model\OfferteModel
+    public function update(string $id, ?OfferteModel $body = null): OfferteModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

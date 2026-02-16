@@ -4,11 +4,16 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\ArtikelModel;
+use SpiderDead\SnelStartApi\Model\ArtikelPrijsAfsprakenModel;
+use SpiderDead\SnelStartApi\Model\ArtikelQueryModel;
+use SpiderDead\SnelStartApi\Model\CustomFieldDto;
+
 final class ArtikelenService extends AbstractService
 {
     /**
      * Operation ID: v2-artikelen-GET-OData
-     * @return array<int, \SpiderDead\SnelStartApi\Model\ArtikelQueryModel>
+     * @return array<int, ArtikelQueryModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(?string $filter = null, ?int $skip = null, ?int $top = null, ?int $aantal = null, ?string $relatieId = null): array
@@ -38,7 +43,7 @@ final class ArtikelenService extends AbstractService
      * Operation ID: v2-artikelen-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function create(?\SpiderDead\SnelStartApi\Model\ArtikelModel $body = null): \SpiderDead\SnelStartApi\Model\ArtikelModel
+    public function create(?ArtikelModel $body = null): ArtikelModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -48,7 +53,7 @@ final class ArtikelenService extends AbstractService
 
     /**
      * Operation ID: v2-artikelen-prijsafspraken-GET-OData
-     * @return array<int, \SpiderDead\SnelStartApi\Model\ArtikelPrijsAfsprakenModel>
+     * @return array<int, ArtikelPrijsAfsprakenModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function allPrijsafspraken(?string $filter = null, ?int $skip = null, ?int $top = null): array
@@ -85,7 +90,7 @@ final class ArtikelenService extends AbstractService
      * Operation ID: v2-artikelen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function get(string $id, ?int $aantal = null, ?string $relatieId = null): \SpiderDead\SnelStartApi\Model\ArtikelQueryModel
+    public function get(string $id, ?int $aantal = null, ?string $relatieId = null): ArtikelQueryModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -104,7 +109,7 @@ final class ArtikelenService extends AbstractService
      * Operation ID: v2-artikelen-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function update(string $id, ?\SpiderDead\SnelStartApi\Model\ArtikelModel $body = null): \SpiderDead\SnelStartApi\Model\ArtikelModel
+    public function update(string $id, ?ArtikelModel $body = null): ArtikelModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -115,7 +120,7 @@ final class ArtikelenService extends AbstractService
 
     /**
      * Operation ID: v2-artikelen-id-customFields-GET
-     * @return array<int, \SpiderDead\SnelStartApi\Model\CustomFieldDto>
+     * @return array<int, CustomFieldDto>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function getCustomFields(string $id): array
@@ -129,7 +134,7 @@ final class ArtikelenService extends AbstractService
 
     /**
      * Operation ID: v2-artikelen-id-customFields-PUT
-     * @return array<int, \SpiderDead\SnelStartApi\Model\CustomFieldDto>
+     * @return array<int, CustomFieldDto>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function updateCustomFields(string $id, mixed $body = null): array

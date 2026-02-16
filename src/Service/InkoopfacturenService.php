@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\InkoopfactuurModel;
+
 final class InkoopfacturenService extends AbstractService
 {
     /**
      * Operation ID: v2-inkoopfacturen-GET-OData
-     * @return array<int, \SpiderDead\SnelStartApi\Model\InkoopfactuurModel>
+     * @return array<int, InkoopfactuurModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array

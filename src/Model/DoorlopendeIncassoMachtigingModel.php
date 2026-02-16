@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\RelatieIdentifierModel;
+
 final class DoorlopendeIncassoMachtigingModel
 {
     public ?\DateTimeImmutable $afsluitDatum = null;
@@ -13,7 +16,7 @@ final class DoorlopendeIncassoMachtigingModel
 
     public ?string $kenmerk = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $klant = null;
+    public ?RelatieIdentifierModel $klant = null;
 
     public ?string $omschrijving = null;
 

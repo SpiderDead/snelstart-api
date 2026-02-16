@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\MemoriaalboekingModel;
+
 final class MemoriaalboekingenService extends AbstractService
 {
     /**
      * Operation ID: v2-memoriaalboekingen-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function create(?\SpiderDead\SnelStartApi\Model\MemoriaalboekingModel $body = null): \SpiderDead\SnelStartApi\Model\MemoriaalboekingModel
+    public function create(?MemoriaalboekingModel $body = null): MemoriaalboekingModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -22,7 +24,7 @@ final class MemoriaalboekingenService extends AbstractService
      * Operation ID: v2-memoriaalboekingen-id-DELETE
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function delete(string $id): \SpiderDead\SnelStartApi\Model\MemoriaalboekingModel
+    public function delete(string $id): MemoriaalboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -35,7 +37,7 @@ final class MemoriaalboekingenService extends AbstractService
      * Operation ID: v2-memoriaalboekingen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function get(string $id): \SpiderDead\SnelStartApi\Model\MemoriaalboekingModel
+    public function get(string $id): MemoriaalboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -48,7 +50,7 @@ final class MemoriaalboekingenService extends AbstractService
      * Operation ID: v2-memoriaalboekingen-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function update(string $id, ?\SpiderDead\SnelStartApi\Model\MemoriaalboekingModel $body = null): \SpiderDead\SnelStartApi\Model\MemoriaalboekingModel
+    public function update(string $id, ?MemoriaalboekingModel $body = null): MemoriaalboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

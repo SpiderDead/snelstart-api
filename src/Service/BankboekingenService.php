@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\BankboekingModel;
+
 final class BankboekingenService extends AbstractService
 {
     /**
      * Operation ID: v2-bankboekingen-GET-OData
-     * @return array<int, \SpiderDead\SnelStartApi\Model\BankboekingModel>
+     * @return array<int, BankboekingModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(?string $filter = null, ?int $skip = null, ?int $top = null): array
@@ -32,7 +34,7 @@ final class BankboekingenService extends AbstractService
      * Operation ID: v2-bankboekingen-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function create(?\SpiderDead\SnelStartApi\Model\BankboekingModel $body = null): \SpiderDead\SnelStartApi\Model\BankboekingModel
+    public function create(?BankboekingModel $body = null): BankboekingModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -57,7 +59,7 @@ final class BankboekingenService extends AbstractService
      * Operation ID: v2-bankboekingen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function get(string $id): \SpiderDead\SnelStartApi\Model\BankboekingModel
+    public function get(string $id): BankboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -70,7 +72,7 @@ final class BankboekingenService extends AbstractService
      * Operation ID: v2-bankboekingen-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function update(string $id, ?\SpiderDead\SnelStartApi\Model\BankboekingModel $body = null): \SpiderDead\SnelStartApi\Model\BankboekingModel
+    public function update(string $id, ?BankboekingModel $body = null): BankboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

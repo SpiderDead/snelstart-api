@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Service;
 
+use SpiderDead\SnelStartApi\Model\LandModel;
+
 final class LandenService extends AbstractService
 {
     /**
      * Operation ID: v2-landen-GET
-     * @return array<int, \SpiderDead\SnelStartApi\Model\LandModel>
+     * @return array<int, LandModel>
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
     public function all(): array
@@ -23,7 +25,7 @@ final class LandenService extends AbstractService
      * Operation ID: v2-landen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function get(string $id): \SpiderDead\SnelStartApi\Model\LandModel
+    public function get(string $id): LandModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

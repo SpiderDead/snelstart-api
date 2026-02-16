@@ -3,35 +3,42 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\AdresModel;
+use SpiderDead\SnelStartApi\Model\DocumentModel;
+use SpiderDead\SnelStartApi\Model\EmailVersturenModel;
+use SpiderDead\SnelStartApi\Model\ExtraVeldArtikelModel;
+use SpiderDead\SnelStartApi\Model\RelatieIdentifierModel;
+
 final class RelatieModel
 {
-    public ?\SpiderDead\SnelStartApi\Model\EmailVersturenModel $aanmaningEmailVersturen = null;
+    public ?EmailVersturenModel $aanmaningEmailVersturen = null;
 
     public ?string $aanmaningsoort = null;
 
     public ?bool $bankieren = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\EmailVersturenModel $bestellingEmailVersturen = null;
+    public ?EmailVersturenModel $bestellingEmailVersturen = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\EmailVersturenModel $bevestigingsEmailVersturen = null;
+    public ?EmailVersturenModel $bevestigingsEmailVersturen = null;
 
     public ?string $bic = null;
 
     public ?string $btwNummer = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\AdresModel $correspondentieAdres = null;
+    public ?AdresModel $correspondentieAdres = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\DocumentModel>|null */
+    /** @var array<int, DocumentModel>|null */
     public ?array $documents = null;
 
     public ?string $email = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\ExtraVeldArtikelModel>|null */
+    /** @var array<int, ExtraVeldArtikelModel>|null */
     public ?array $extraVeldenKlant = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\EmailVersturenModel $factuurEmailVersturen = null;
+    public ?EmailVersturenModel $factuurEmailVersturen = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\RelatieIdentifierModel $factuurRelatie = null;
+    public ?RelatieIdentifierModel $factuurRelatie = null;
 
     public ?float $factuurkorting = null;
 
@@ -61,9 +68,9 @@ final class RelatieModel
 
     public ?bool $nonactief = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\EmailVersturenModel $offerteAanvraagEmailVersturen = null;
+    public ?EmailVersturenModel $offerteAanvraagEmailVersturen = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\EmailVersturenModel $offerteEmailVersturen = null;
+    public ?EmailVersturenModel $offerteEmailVersturen = null;
 
     public ?string $oin = null;
 
@@ -80,7 +87,7 @@ final class RelatieModel
 
     public ?string $verkoopBoekingenUri = null;
 
-    public ?\SpiderDead\SnelStartApi\Model\AdresModel $vestigingsAdres = null;
+    public ?AdresModel $vestigingsAdres = null;
 
     public ?string $websiteUrl = null;
 }

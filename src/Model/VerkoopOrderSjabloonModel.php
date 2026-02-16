@@ -3,12 +3,15 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\IngaveGegevenSjabloonModel;
+
 final class VerkoopOrderSjabloonModel
 {
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\IngaveGegevenSjabloonModel>|null */
+    /** @var array<int, IngaveGegevenSjabloonModel>|null */
     public ?array $extraHoofdVelden = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\IngaveGegevenSjabloonModel>|null */
+    /** @var array<int, IngaveGegevenSjabloonModel>|null */
     public ?array $extraRegelVelden = null;
 
     public ?string $id = null;

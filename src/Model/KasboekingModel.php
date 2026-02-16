@@ -3,6 +3,13 @@
 declare(strict_types=1);
 
 namespace SpiderDead\SnelStartApi\Model;
+
+use SpiderDead\SnelStartApi\Model\BtwBoekingregelModel;
+use SpiderDead\SnelStartApi\Model\DagboekIdentifierModel;
+use SpiderDead\SnelStartApi\Model\GrootboekBoekingsRegelModel;
+use SpiderDead\SnelStartApi\Model\InkoopBoekingVerantwoordingsRegelModel2;
+use SpiderDead\SnelStartApi\Model\VerkoopBoekingVerantwoordingsRegelModel2;
+
 final class KasboekingModel
 {
     public float $bedragOntvangen;
@@ -11,21 +18,21 @@ final class KasboekingModel
 
     public ?string $boekstuk = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\BtwBoekingregelModel>|null */
+    /** @var array<int, BtwBoekingregelModel>|null */
     public ?array $btwBoekingsregels = null;
 
-    public \SpiderDead\SnelStartApi\Model\DagboekIdentifierModel $dagboek;
+    public DagboekIdentifierModel $dagboek;
 
     public \DateTimeImmutable $datum;
 
     public ?bool $gewijzigdDoorAccountant = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\GrootboekBoekingsRegelModel>|null */
+    /** @var array<int, GrootboekBoekingsRegelModel>|null */
     public ?array $grootboekBoekingsRegels = null;
 
     public ?string $id = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\InkoopBoekingVerantwoordingsRegelModel2>|null */
+    /** @var array<int, InkoopBoekingVerantwoordingsRegelModel2>|null */
     public ?array $inkoopboekingBoekingsRegels = null;
 
     public ?bool $markering = null;
@@ -36,6 +43,6 @@ final class KasboekingModel
 
     public ?string $uri = null;
 
-    /** @var array<int, \SpiderDead\SnelStartApi\Model\VerkoopBoekingVerantwoordingsRegelModel2>|null */
+    /** @var array<int, VerkoopBoekingVerantwoordingsRegelModel2>|null */
     public ?array $verkoopboekingBoekingsRegels = null;
 }
