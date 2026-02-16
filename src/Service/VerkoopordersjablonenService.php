@@ -10,7 +10,7 @@ final class VerkoopordersjablonenService extends AbstractService
      * Operation ID: v2-verkoopordersjablonen-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VerkoopordersjablonenGET(): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsVerkoopordersjablonenVerkoopOrderSjabloonModelA
+    public function v2VerkoopordersjablonenGET(): \SpiderDead\SnelStartApi\Model\VerkoopOrderSjabloonModelA
     {
         $pathParams = [];
         $queryParams = [];
@@ -22,7 +22,7 @@ final class VerkoopordersjablonenService extends AbstractService
      * Operation ID: v2-verkoopordersjablonen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VerkoopordersjablonenIdGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsVerkoopordersjablonenVerkoopOrderSjabloonModel
+    public function v2VerkoopordersjablonenIdGET(string $id): \SpiderDead\SnelStartApi\Model\VerkoopOrderSjabloonModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

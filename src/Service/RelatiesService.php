@@ -10,7 +10,7 @@ final class RelatiesService extends AbstractService
      * Operation ID: v2-relaties-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2RelatiesGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsRelatiesRelatieModelArray
+    public function v2RelatiesGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\RelatieModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -31,7 +31,7 @@ final class RelatiesService extends AbstractService
      * Operation ID: v2-relaties-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2RelatiesPOST(?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsRelatiesRelatieWriteModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsRelatiesRelatieWriteModel
+    public function v2RelatiesPOST(?\SpiderDead\SnelStartApi\Model\RelatieWriteModel $body = null): \SpiderDead\SnelStartApi\Model\RelatieWriteModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -43,7 +43,7 @@ final class RelatiesService extends AbstractService
      * Operation ID: v2-relaties-id-DELETE
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2RelatiesIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\RelatiesIdDelete200ApplicationJsonResponse
+    public function v2RelatiesIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -56,7 +56,7 @@ final class RelatiesService extends AbstractService
      * Operation ID: v2-relaties-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2RelatiesIdGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsRelatiesRelatieModel
+    public function v2RelatiesIdGET(string $id): \SpiderDead\SnelStartApi\Model\RelatieModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -69,7 +69,7 @@ final class RelatiesService extends AbstractService
      * Operation ID: v2-relaties-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2RelatiesIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsRelatiesRelatieWriteModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsRelatiesRelatieWriteModel
+    public function v2RelatiesIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\RelatieWriteModel $body = null): \SpiderDead\SnelStartApi\Model\RelatieWriteModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -82,7 +82,7 @@ final class RelatiesService extends AbstractService
      * Operation ID: v2-relaties-id-customFields-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2RelatiesIdCustomFieldsGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsCustomFieldsRelatieCustomFieldsModel
+    public function v2RelatiesIdCustomFieldsGET(string $id): \SpiderDead\SnelStartApi\Model\RelatieCustomFieldsModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -95,7 +95,7 @@ final class RelatiesService extends AbstractService
      * Operation ID: v2-relaties-id-customFields-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2RelatiesIdCustomFieldsPUT(string $id, ?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsCustomFieldsRelatieUpdatedCustomFieldsModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsCustomFieldsRelatieCustomFieldsModel
+    public function v2RelatiesIdCustomFieldsPUT(string $id, ?\SpiderDead\SnelStartApi\Model\RelatieUpdatedCustomFieldsModel $body = null): \SpiderDead\SnelStartApi\Model\RelatieCustomFieldsModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -108,7 +108,7 @@ final class RelatiesService extends AbstractService
      * Operation ID: v2-relaties-id-doorlopendeincassomachtigingen-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2RelatiesIdDoorlopendeincassomachtigingenGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsRelatiesDoorlopendeIncassoMachtigingModelArray
+    public function v2RelatiesIdDoorlopendeincassomachtigingenGET(string $id): \SpiderDead\SnelStartApi\Model\DoorlopendeIncassoMachtigingModelArray
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -121,7 +121,7 @@ final class RelatiesService extends AbstractService
      * Operation ID: v2-relaties-id-inkoopboekingen-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2RelatiesIdInkoopboekingenGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsInkoopboekingenInkoopboekingModelArray
+    public function v2RelatiesIdInkoopboekingenGET(string $id): \SpiderDead\SnelStartApi\Model\InkoopboekingModelArray
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -134,7 +134,7 @@ final class RelatiesService extends AbstractService
      * Operation ID: v2-relaties-id-verkoopboekingen-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2RelatiesIdVerkoopboekingenGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsVerkoopBoekingenVerkoopBoekingModelArray
+    public function v2RelatiesIdVerkoopboekingenGET(string $id): \SpiderDead\SnelStartApi\Model\VerkoopBoekingModelArray
     {
         $pathParams = [];
         $pathParams['id'] = $id;

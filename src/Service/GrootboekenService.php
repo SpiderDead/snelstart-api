@@ -10,7 +10,7 @@ final class GrootboekenService extends AbstractService
      * Operation ID: v2-grootboeken-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2GrootboekenGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsGrootboekenGrootboekModelArray
+    public function v2GrootboekenGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\GrootboekModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -31,7 +31,7 @@ final class GrootboekenService extends AbstractService
      * Operation ID: v2-grootboeken-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2GrootboekenPOST(?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsGrootboekenGrootboekModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsGrootboekenGrootboekModel
+    public function v2GrootboekenPOST(?\SpiderDead\SnelStartApi\Model\GrootboekModel $body = null): \SpiderDead\SnelStartApi\Model\GrootboekModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -43,7 +43,7 @@ final class GrootboekenService extends AbstractService
      * Operation ID: v2-grootboeken-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2GrootboekenIdGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsGrootboekenGrootboekModel
+    public function v2GrootboekenIdGET(string $id): \SpiderDead\SnelStartApi\Model\GrootboekModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

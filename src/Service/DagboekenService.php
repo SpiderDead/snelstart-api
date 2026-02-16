@@ -10,7 +10,7 @@ final class DagboekenService extends AbstractService
      * Operation ID: v2-dagboeken-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2DagboekenGET(): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsDagboekenDagboekModelArray
+    public function v2DagboekenGET(): \SpiderDead\SnelStartApi\Model\DagboekModelArray
     {
         $pathParams = [];
         $queryParams = [];

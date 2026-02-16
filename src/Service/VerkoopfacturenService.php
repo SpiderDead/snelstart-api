@@ -10,7 +10,7 @@ final class VerkoopfacturenService extends AbstractService
      * Operation ID: v2-verkoopfacturen-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VerkoopfacturenGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsVerkoopfacturenVerkoopfactuurModelArray
+    public function v2VerkoopfacturenGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\VerkoopfactuurModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -31,7 +31,7 @@ final class VerkoopfacturenService extends AbstractService
      * Operation ID: v2-verkoopfacturen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VerkoopfacturenIdGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsVerkoopfacturenVerkoopfactuurModel
+    public function v2VerkoopfacturenIdGET(string $id): \SpiderDead\SnelStartApi\Model\VerkoopfactuurModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

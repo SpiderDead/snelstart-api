@@ -10,7 +10,7 @@ final class BtwaangiftesService extends AbstractService
      * Operation ID: v2-btwaangiftes-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2BtwaangiftesGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBtwAangiftesBtwAangifteModelArray
+    public function v2BtwaangiftesGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\BtwAangifteModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -31,7 +31,7 @@ final class BtwaangiftesService extends AbstractService
      * Operation ID: v2-btwaangiftes-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2BtwaangiftesIdGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBtwAangiftesBtwAangifteModel
+    public function v2BtwaangiftesIdGET(string $id): \SpiderDead\SnelStartApi\Model\BtwAangifteModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -44,7 +44,7 @@ final class BtwaangiftesService extends AbstractService
      * Operation ID: v2-btwaangiftes-id-externAangeven-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2BtwaangiftesIdExternAangevenPUT(string $id, ?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBtwAangiftesUpdateBtwAangifteStatusModel $body = null): void
+    public function v2BtwaangiftesIdExternAangevenPUT(string $id, ?\SpiderDead\SnelStartApi\Model\UpdateBtwAangifteStatusModel $body = null): void
     {
         $pathParams = [];
         $pathParams['id'] = $id;

@@ -10,7 +10,7 @@ final class KostenplaatsenService extends AbstractService
      * Operation ID: v2-kostenplaatsen-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2KostenplaatsenGET(): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsKostenplaatsenKostenplaatsModelArray
+    public function v2KostenplaatsenGET(): \SpiderDead\SnelStartApi\Model\KostenplaatsModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -22,7 +22,7 @@ final class KostenplaatsenService extends AbstractService
      * Operation ID: v2-kostenplaatsen-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2KostenplaatsenPOST(?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsKostenplaatsenKostenplaatsModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsKostenplaatsenKostenplaatsModel
+    public function v2KostenplaatsenPOST(?\SpiderDead\SnelStartApi\Model\KostenplaatsModel $body = null): \SpiderDead\SnelStartApi\Model\KostenplaatsModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -34,7 +34,7 @@ final class KostenplaatsenService extends AbstractService
      * Operation ID: v2-kostenplaatsen-id-DELETE
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2KostenplaatsenIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\KostenplaatsenIdDelete200ApplicationJsonResponse
+    public function v2KostenplaatsenIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -47,7 +47,7 @@ final class KostenplaatsenService extends AbstractService
      * Operation ID: v2-kostenplaatsen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2KostenplaatsenIdGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsKostenplaatsenKostenplaatsModel
+    public function v2KostenplaatsenIdGET(string $id): \SpiderDead\SnelStartApi\Model\KostenplaatsModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -60,7 +60,7 @@ final class KostenplaatsenService extends AbstractService
      * Operation ID: v2-kostenplaatsen-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2KostenplaatsenIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsKostenplaatsenKostenplaatsModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsKostenplaatsenKostenplaatsModel
+    public function v2KostenplaatsenIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\KostenplaatsModel $body = null): \SpiderDead\SnelStartApi\Model\KostenplaatsModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

@@ -10,7 +10,7 @@ final class VatratesService extends AbstractService
      * Operation ID: v2-vatrates-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VatratesGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsVatRatesVatRatesModelArray
+    public function v2VatratesGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\VatRatesModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -31,7 +31,7 @@ final class VatratesService extends AbstractService
      * Operation ID: v2-vatrates-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VatratesIdGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsVatRatesVatRatesModel
+    public function v2VatratesIdGET(string $id): \SpiderDead\SnelStartApi\Model\VatRatesModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

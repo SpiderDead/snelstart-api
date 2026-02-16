@@ -10,7 +10,7 @@ final class DocumentenService extends AbstractService
      * Operation ID: v2-documenten-documenttype-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2DocumentenDocumenttypePOST(string $documenttype, ?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsDocumentenDocumentContentModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsDocumentenDocumentIdentifierModel
+    public function v2DocumentenDocumenttypePOST(string $documenttype, ?\SpiderDead\SnelStartApi\Model\DocumentContentModel $body = null): \SpiderDead\SnelStartApi\Model\DocumentIdentifierModel
     {
         $pathParams = [];
         $pathParams['documenttype'] = $documenttype;
@@ -23,7 +23,7 @@ final class DocumentenService extends AbstractService
      * Operation ID: v2-documenten-documenttype-pid-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2DocumentenDocumenttypePidGET(string $documenttype, string $pid): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBijlagenVerkoopBoekingBijlageReferenceModelArra
+    public function v2DocumentenDocumenttypePidGET(string $documenttype, string $pid): \SpiderDead\SnelStartApi\Model\VerkoopBoekingBijlageReferenceModelArra
     {
         $pathParams = [];
         $pathParams['documenttype'] = $documenttype;
@@ -37,7 +37,7 @@ final class DocumentenService extends AbstractService
      * Operation ID: v2-documenten-id-DELETE
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2DocumentenIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\DocumentenIdDelete200ApplicationJsonResponse
+    public function v2DocumentenIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -50,7 +50,7 @@ final class DocumentenService extends AbstractService
      * Operation ID: v2-documenten-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2DocumentenIdGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsDocumentenDocumentContentModel
+    public function v2DocumentenIdGET(string $id): \SpiderDead\SnelStartApi\Model\DocumentContentModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -63,7 +63,7 @@ final class DocumentenService extends AbstractService
      * Operation ID: v2-documenten-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2DocumentenIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsDocumentenDocumentContentModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsDocumentenDocumentIdentifierModel
+    public function v2DocumentenIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\DocumentContentModel $body = null): \SpiderDead\SnelStartApi\Model\DocumentIdentifierModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

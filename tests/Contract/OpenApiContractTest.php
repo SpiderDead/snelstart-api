@@ -17,7 +17,8 @@ final class OpenApiContractTest extends TestCase
 
     public function testSchemaCountMatchesSpec(): void
     {
-        self::assertCount(237, SchemaMap::all());
+        // Only reachable schemas are generated (excludes .NET internal types)
+        self::assertCount(190, SchemaMap::all());
     }
 
     public function testMappedModelClassesExist(): void

@@ -10,7 +10,7 @@ final class VerkoopboekingenService extends AbstractService
      * Operation ID: v2-verkoopboekingen-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VerkoopboekingenPOST(?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsVerkoopBoekingenVerkoopBoekingModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsVerkoopBoekingenVerkoopBoekingModel
+    public function v2VerkoopboekingenPOST(?\SpiderDead\SnelStartApi\Model\VerkoopBoekingModel $body = null): \SpiderDead\SnelStartApi\Model\VerkoopBoekingModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -22,7 +22,7 @@ final class VerkoopboekingenService extends AbstractService
      * Operation ID: v2-verkoopboekingen-id-DELETE
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VerkoopboekingenIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\VerkoopboekingenIdDelete200ApplicationJsonResponse
+    public function v2VerkoopboekingenIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -35,7 +35,7 @@ final class VerkoopboekingenService extends AbstractService
      * Operation ID: v2-verkoopboekingen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VerkoopboekingenIdGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsVerkoopBoekingenVerkoopBoekingModel
+    public function v2VerkoopboekingenIdGET(string $id): \SpiderDead\SnelStartApi\Model\VerkoopBoekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -48,7 +48,7 @@ final class VerkoopboekingenService extends AbstractService
      * Operation ID: v2-verkoopboekingen-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VerkoopboekingenIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsVerkoopBoekingenVerkoopBoekingModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsVerkoopBoekingenVerkoopBoekingModel
+    public function v2VerkoopboekingenIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\VerkoopBoekingModel $body = null): \SpiderDead\SnelStartApi\Model\VerkoopBoekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

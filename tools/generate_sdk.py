@@ -71,9 +71,14 @@ def sanitize_var(name: str) -> str:
 
 
 def ensure_unique(base: str, used: set[str]) -> str:
+    """
+    Ensure uniqueness with case-insensitive collision detection.
+    This is important for Windows filesystems which are case-insensitive.
+    """
     candidate = base
     i = 2
-    while candidate in used:
+    # Check for both exact match and case-insensitive match
+    while candidate in used or candidate.lower() in {u.lower() for u in used}:
         candidate = f"{base}{i}"
         i += 1
     used.add(candidate)
@@ -84,11 +89,220 @@ def schema_key_from_ref(ref: str) -> str:
     return ref.split("/")[-1]
 
 
-def build_schema_class_map(schemas: dict[str, dict]) -> dict[str, str]:
+def shorten_schema_name(key: str) -> str:
+    """
+    Extract a short, meaningful name from a schema key.
+    
+    Examples:
+    - SnelStart.B2B.Api.V2.Models.Relaties.RelatieModel -> RelatieModel
+    - SnelStart-B2B-Api-V2-Models-Artikelen-ArtikelModelArray -> ArtikelModelArray
+    - SnelStart-B2B-Api-V2-Models-Artikelen-ArtikelModelArray-1 -> ArtikelModelArray1
+    - ArtikelenIdDelete200ApplicationJsonResponse -> ArtikelenIdDelete200ApplicationJsonResponse (keep as-is)
+    - Microsoft.Data.Edm.IEdmModel -> IEdmModel (for internal types)
+    """
+    # Preserve the -1, -2 suffix for duplicate array schemas
+    suffix = ""
+    if key.endswith("-1") or key.endswith("-2") or key.endswith("-3"):
+        suffix = key[-2:]  # e.g., "-1"
+        key = key[:-2]
+    
+    # Normalize separators: both periods and dashes represent namespace separators
+    normalized = key.replace("-", ".")
+    
+    # For SnelStart.B2B.Api.V2.Models.* schemas, extract the last meaningful segment
+    if normalized.startswith("SnelStart.B2B.Api.V2.Models."):
+        parts = normalized.split(".")
+        # Last part is usually the model name
+        return parts[-1] + suffix.replace("-", "")
+    
+    # For SnelStart.Business.Interfaces.* schemas (e.g., CustomFieldDto)
+    if normalized.startswith("SnelStart.Business.Interfaces."):
+        parts = normalized.split(".")
+        return parts[-1] + suffix.replace("-", "")
+    
+    # For System.Web.Http.OData.Query.* schemas (these are wrapper types)
+    if normalized.startswith("System.Web.Http.OData.Query."):
+        # These are generic OData wrapper types like ODataQueryOptions<T>
+        # We want to keep them descriptive but shortened
+        # Example: System.Web.Http.OData.Query.ODataQueryOptions[SnelStart.B2B.Api.V2.Models.Artikelen.ArtikelQueryModel]
+        # -> ODataQueryOptionsArtikelQueryModel
+        parts = normalized.split(".")
+        return parts[-1] + suffix.replace("-", "")
+    
+    # For other dotted names (Microsoft.*, System.*), take the last segment
+    if "." in normalized:
+        return normalized.split(".")[-1] + suffix.replace("-", "")
+    
+    # For non-namespaced names, keep as-is (these are usually response wrappers)
+    return key
+
+
+def find_reachable_schemas(spec: dict) -> set[str]:
+    """
+    Find all schemas that are actually referenced by operations.
+    This excludes .NET internal types that leak through but are never used.
+    """
+    reachable: set[str] = set()
+    to_process: list[str] = []
+    
+    # Helper to extract schema key from $ref
+    def extract_ref(obj: dict | None) -> str | None:
+        if obj and "$ref" in obj:
+            return schema_key_from_ref(obj["$ref"])
+        return None
+    
+    # Helper to recursively find all $ref in a schema
+    def find_refs_in_schema(schema: dict | None) -> list[str]:
+        if not schema or not isinstance(schema, dict):
+            return []
+        
+        refs: list[str] = []
+        
+        # Direct $ref
+        if "$ref" in schema:
+            refs.append(schema_key_from_ref(schema["$ref"]))
+        
+        # Properties
+        if "properties" in schema:
+            for prop_schema in schema["properties"].values():
+                refs.extend(find_refs_in_schema(prop_schema))
+        
+        # Array items
+        if "items" in schema:
+            refs.extend(find_refs_in_schema(schema["items"]))
+        
+        # allOf, anyOf, oneOf
+        for key in ["allOf", "anyOf", "oneOf"]:
+            if key in schema:
+                for sub_schema in schema[key]:
+                    refs.extend(find_refs_in_schema(sub_schema))
+        
+        # additionalProperties
+        if "additionalProperties" in schema and isinstance(schema["additionalProperties"], dict):
+            refs.extend(find_refs_in_schema(schema["additionalProperties"]))
+        
+        return refs
+    
+    # Start with schemas referenced by operations
+    paths = spec.get("paths") or {}
+    for path_item in paths.values():
+        for method in ["get", "post", "put", "patch", "delete", "options", "head"]:
+            if method not in path_item:
+                continue
+            op = path_item[method]
+            
+            # Request body
+            request_body = op.get("requestBody") or {}
+            if isinstance(request_body, dict):
+                content = request_body.get("content") or {}
+                for media_type_obj in content.values():
+                    if isinstance(media_type_obj, dict):
+                        ref = extract_ref(media_type_obj.get("schema"))
+                        if ref:
+                            to_process.append(ref)
+            
+            # Response bodies
+            responses = op.get("responses") or {}
+            for response in responses.values():
+                if not isinstance(response, dict):
+                    continue
+                content = response.get("content") or {}
+                for media_type_obj in content.values():
+                    if isinstance(media_type_obj, dict):
+                        ref = extract_ref(media_type_obj.get("schema"))
+                        if ref:
+                            to_process.append(ref)
+            
+            # Parameters
+            for param in op.get("parameters") or []:
+                if isinstance(param, dict):
+                    ref = extract_ref(param.get("schema"))
+                    if ref:
+                        to_process.append(ref)
+    
+    # Transitively follow all references
+    schemas = (spec.get("components") or {}).get("schemas") or {}
+    while to_process:
+        schema_key = to_process.pop()
+        if schema_key in reachable or schema_key not in schemas:
+            continue
+        
+        reachable.add(schema_key)
+        
+        # Find all refs within this schema
+        schema = schemas[schema_key]
+        for ref in find_refs_in_schema(schema):
+            if ref not in reachable:
+                to_process.append(ref)
+    
+    return reachable
+
+
+def find_duplicate_schemas(schemas: dict[str, dict]) -> dict[str, str]:
+    """
+    Find schemas that are exact duplicates and map duplicates to their canonical version.
+    Returns a dict mapping duplicate keys to their canonical key.
+    """
+    import json
+    
+    canonical = {}  # schema_hash -> canonical_key
+    duplicates = {}  # duplicate_key -> canonical_key
+    
+    for key in sorted(schemas.keys()):
+        schema = schemas[key]
+        # Create a normalized hash of the schema
+        schema_hash = json.dumps(schema, sort_keys=True)
+        
+        if schema_hash in canonical:
+            # This is a duplicate
+            duplicates[key] = canonical[schema_hash]
+        else:
+            # This is the canonical version
+            canonical[schema_hash] = key
+    
+    return duplicates
+
+
+def build_schema_class_map(schemas: dict[str, dict], reachable: set[str]) -> dict[str, str]:
+    """
+    Build a map from schema keys to PHP class names.
+    Only includes reachable schemas and uses shortened names.
+    Deduplicates identical schemas to avoid generating redundant classes.
+    """
+    # Find duplicates first
+    duplicates = find_duplicate_schemas(schemas)
+    
     used: set[str] = set()
     mapping: dict[str, str] = {}
+    
+    # First pass: assign short names to canonical schemas
     for key in sorted(schemas.keys()):
-        mapping[key] = ensure_unique(studly(key), used)
+        if key not in reachable:
+            continue  # Skip unreachable schemas
+        
+        # If this is a duplicate, map it to the canonical class
+        if key in duplicates:
+            canonical_key = duplicates[key]
+            # If canonical is reachable, use its class name
+            if canonical_key in reachable:
+                # We'll handle this in second pass
+                continue
+            # If canonical is not reachable but this duplicate is, treat this as canonical
+        
+        short_name = shorten_schema_name(key)
+        class_name = studly(short_name)
+        mapping[key] = ensure_unique(class_name, used)
+    
+    # Second pass: map duplicates to their canonical class
+    for key in sorted(schemas.keys()):
+        if key not in reachable:
+            continue
+        
+        if key in duplicates:
+            canonical_key = duplicates[key]
+            if canonical_key in mapping:
+                mapping[key] = mapping[canonical_key]
+    
     return mapping
 
 
@@ -557,7 +771,8 @@ def main() -> int:
 
     spec = yaml.safe_load(SPEC_PATH.read_text(encoding="utf-8"))
     schemas = (spec.get("components") or {}).get("schemas") or {}
-    schema_map = build_schema_class_map(schemas)
+    reachable = find_reachable_schemas(spec)
+    schema_map = build_schema_class_map(schemas, reachable)
     operations, tags = generate_operation_data(spec, schema_map)
 
     tag_to_service: dict[str, str] = {}
@@ -582,8 +797,13 @@ def main() -> int:
     files["src/SnelStartClient.php"] = generate_client_class(accessors)
     for tag in sorted(tags.keys()):
         files[f"src/Service/{tag_to_service[tag]}.php"] = generate_service_class(tag_to_service[tag], tags[tag])
-    for key in sorted(schemas.keys()):
-        files[f"src/Model/{schema_map[key]}.php"] = generate_model_class(schemas[key] or {}, schema_map[key], schema_map)
+    # Generate model files only for unique classes (deduplicated)
+    generated_classes: set[str] = set()
+    for key in sorted(schema_map.keys()):
+        class_name = schema_map[key]
+        if class_name not in generated_classes:
+            files[f"src/Model/{class_name}.php"] = generate_model_class(schemas[key] or {}, class_name, schema_map)
+            generated_classes.add(class_name)
 
     changed: list[Path] = []
     for rel, content in files.items():

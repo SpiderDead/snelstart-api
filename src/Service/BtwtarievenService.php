@@ -10,7 +10,7 @@ final class BtwtarievenService extends AbstractService
      * Operation ID: v2-btwtarieven-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2BtwtarievenGET(): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBtwTarievenBtwTariefModelArray
+    public function v2BtwtarievenGET(): \SpiderDead\SnelStartApi\Model\BtwTariefModelArray
     {
         $pathParams = [];
         $queryParams = [];

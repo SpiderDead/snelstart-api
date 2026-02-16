@@ -10,7 +10,7 @@ final class BankboekingenService extends AbstractService
      * Operation ID: v2-bankboekingen-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2BankboekingenGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBankboekingenBankboekingModelArray
+    public function v2BankboekingenGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\BankboekingModelArray
     {
         $pathParams = [];
         $queryParams = [];
@@ -31,7 +31,7 @@ final class BankboekingenService extends AbstractService
      * Operation ID: v2-bankboekingen-POST
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2BankboekingenPOST(?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBankboekingenBankboekingModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBankboekingenBankboekingModel
+    public function v2BankboekingenPOST(?\SpiderDead\SnelStartApi\Model\BankboekingModel $body = null): \SpiderDead\SnelStartApi\Model\BankboekingModel
     {
         $pathParams = [];
         $queryParams = [];
@@ -43,7 +43,7 @@ final class BankboekingenService extends AbstractService
      * Operation ID: v2-bankboekingen-id-DELETE
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2BankboekingenIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\BankboekingenIdDelete200ApplicationJsonResponse
+    public function v2BankboekingenIdDELETE(string $id): \SpiderDead\SnelStartApi\Model\ArtikelenIdDelete200ApplicationJsonResponse
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -56,7 +56,7 @@ final class BankboekingenService extends AbstractService
      * Operation ID: v2-bankboekingen-id-GET
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2BankboekingenIdGET(string $id): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBankboekingenBankboekingModel
+    public function v2BankboekingenIdGET(string $id): \SpiderDead\SnelStartApi\Model\BankboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;
@@ -69,7 +69,7 @@ final class BankboekingenService extends AbstractService
      * Operation ID: v2-bankboekingen-id-PUT
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2BankboekingenIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBankboekingenBankboekingModel $body = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsBankboekingenBankboekingModel
+    public function v2BankboekingenIdPUT(string $id, ?\SpiderDead\SnelStartApi\Model\BankboekingModel $body = null): \SpiderDead\SnelStartApi\Model\BankboekingModel
     {
         $pathParams = [];
         $pathParams['id'] = $id;

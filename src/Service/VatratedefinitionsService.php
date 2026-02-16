@@ -10,7 +10,7 @@ final class VatratedefinitionsService extends AbstractService
      * Operation ID: v2-vatratedefinitions-GET-OData
      * @throws \SpiderDead\SnelStartApi\Exception\ApiException
      */
-    public function v2VatratedefinitionsGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\SnelStartB2BApiV2ModelsVatRatesVatRateDefinitionModelArray
+    public function v2VatratedefinitionsGETOData(?string $filter = null, ?int $skip = null, ?int $top = null): \SpiderDead\SnelStartApi\Model\VatRateDefinitionModelArray
     {
         $pathParams = [];
         $queryParams = [];
